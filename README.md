@@ -138,14 +138,13 @@ components/
 
 <!-- Using the `scoped` attribute -->
 <style scoped>
-.button {
-  border: none;
-  border-radius: 2px;
-}
+.button 
+  border: none
+  border-radius: 2px
 
-.button-close {
-  background-color: red;
-}
+.button-close 
+  background-color: red
+  
 </style>
 ```
 
@@ -161,4 +160,84 @@ components/
   alt="Vue Logo"
 >
 ```
+
+# Sass style guide
+
+- Use the sass type
+
+```javascript
+// ✗ avoid
+<style scoped lang="scss">
+.button, #thing {
+    color: red;
+}
+</style>
+
+// Do
+<style scoped lang="sass">
+.button, #thing
+    color: red
+</style>
+```
+
+- Use tabs for indenting with sass, not spaces
+
+```javascript
+<style scoped lang="sass">
+// ✗ avoid
+.button, #thing
+  color: red
+
+//Do
+.button, #thing
+    color: red
+</style>
+```
+
+- Keep all sass vairables and mixens inside dedacated folders
+
+```javascript
+lib/
+|- vars.sass
+|- mixens.scss
+```
+
+- Use .scss for mixens in the mixen file only
+
+```javascript
+lib/
+|- vars.sass
+|- mixens.scss
+```
+
+- Import the master var.sass file at the top of each style section
+
+```javascript
+<style scoped lang="sass">
+import path/to/vars.sass
+.button, #thing
+    color: red
+</style>
+```
+
+- Avoid global layouts for each page, instead add vairables to vars.sass
+- Respect catergory sections added to vars.sass and mixens.scss
+- Use camelcase when naming variables and mixens
+
+```sass
+//breakpoints
+$small: 340px
+$med: 10rem
+...
+//colors
+$mainBlue: #432B
+...
+//Spasings
+$mainPadding: 30px
+...
+```
+
+- Comment out any mixens if you add them to mixens.scss
+
+- Only import mixens.scss at the top of the style section if you are using them
 
