@@ -10,7 +10,7 @@ Yoobee Application Development assignment, Web graphic store
 - Use camelcase when naming variables and functions
 ```javascript
 function myFunction() {}
-var myVar = "hello";
+var myVar = "hello"
 ```
 
 - Add a space after keywords
@@ -20,8 +20,8 @@ var myVar = "hello";
 
 - Infix operators must be spaced
 ```javascript
-var x = 2;
-var message = "hello, " + name + "!";
+var x = 2
+var message = "hello, " + name + "!"
 ```
 
 - Commas should have a space after them
@@ -60,29 +60,29 @@ console.log(value)
 var obj = {
   foo: "foo",
   bar: "bar"
-};
+}
 ```
 
 - No space between function identifiers and their invocations
 ```javascript
-console.log("hello");
+console.log("hello")
 ```
 
 - Constructor/Class names must begin with a capital letter
 ```javascript
 function Animal() {}
-var dog = new Animal();
+var dog = new Animal()
 ```
 
 - Use array literals instead of array constructors
 
 ```javascript
-var nums = [1, 2, 3];
+var nums = [1, 2, 3]
 ```
 
 - Use a single import statement per module
 ```javascript
-import { myFunc1, myFunc2 } from "module";
+import { myFunc1, myFunc2 } from "module"
 ```
 
 - Component names should always be multi-word, except for root App
@@ -90,7 +90,7 @@ import { myFunc1, myFunc2 } from "module";
 export default {
   name: "TodoItem"
   // ...
-};
+}
 ```
 
 - Each component should be in its own file
