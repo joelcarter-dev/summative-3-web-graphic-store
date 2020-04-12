@@ -1,19 +1,42 @@
-const express = require('express')
-const cors = require('cors')
-const BP = require('body-parser')
+const express = require("express")
+const dotenv = require("dotenv")
+const morgan = require("morgan")
+const cors = require("cors")
+// const path = require("path")
+// const BP = require("body-parser")
 
 const app = express()
 
-//modals
-// require('./modals/Article')
-
-//routs 
-app.use(BP.urlencoded({extended: false}))
-app.use(BP.json())
+// Enabling CORS
 app.use(cors())
-app.use(require('./routs'))
 
-const server = app.listen(process.env.PORT || 3000, function() {
-    console.log("Server Running at " + server.address().port)
+// Loading environment variables
+dotenv.config({ path: "./config/config.env" })
 
+// Bringing in files used for routing
+const users = require("./routes/users.js")
+const items = require("./routes/items.js")
+const comments = require("./routes/comments.js")
+
+// Mounting the routers
+app.use("/api/v1/users", users)
+app.use("/api/v1/items", items)
+app.use("/api/v1", comments)
+
+// Setting up a static folder to display our API documentation
+// app.use(express.static(path.join(__dirname, "public")))
+app.use(express.static("public"))
+
+// Body parser
+// app.use(BP.urlencoded({ extended: false }))
+// app.use(BP.json())
+
+// Dev logging middleware used by Akash
+// Will delete before submitting to Richard
+if (process.env.NODE_ENV === "development") {
+	app.use(morgan("dev"))
+}
+
+var server = app.listen(process.env.PORT || 3000, function () {
+	console.log("Listening on port " + server.address().port)
 })
