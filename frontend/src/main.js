@@ -6,8 +6,9 @@ import VueResource from "vue-resource"
 import LandingPage from "./views/LandingPage"
 import StoreItem from "./views/StoreItem"
 import UserProfile from "./views/StoreItem"
-import SignUp from "./views/SignUp.vue"
-import LogIn from "./views/LogIn"
+
+// import SignUp from "./views/SignUp.vue"
+// import LogIn from "./views/LogIn"
 
 Vue.config.productionTip = false
 
@@ -22,16 +23,6 @@ Vue.use(VueRouter)
 Vue.use(VueResource)
 
 const routes = [
-	{
-		path: "/login",
-		component: LogIn,
-		name: "login"
-	},
-	{
-		path: "/signup",
-		component: SignUp,
-		name: "signup"
-	},
 	{
 		path: "/",
 		component: LandingPage,
