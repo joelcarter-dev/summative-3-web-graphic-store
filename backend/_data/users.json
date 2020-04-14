@@ -1,0 +1,313 @@
+[
+	{
+		"_id": "5d7a514b5d2c12c7449be042",
+		"name": "Joel Jackson",
+		"email": "joel@gmail.com",
+		"password": "123456",
+		"bio": "This is something about me.",
+		"rating": 3,
+		"memberSince": 2018,
+		"phone": "(111) 114-1111",
+		"location": "233 Bay State Rd Christchurch 8045",
+		"qualifications": [
+			"Freelance Web Development",
+			"Freelance Painter",
+			"Digital Artist"
+		],
+		"photo": "https://www.npmjs.com/search?q=bodyparser",
+		"items": [],
+		"comment": [
+			"5c8a1d5b0190b214360dc037"
+		]
+	},
+	{
+		"_id": "5d7a514b5d2c12c7449be043",
+		"name": "Richard Freeman",
+		"email": "richard@gmail.com",
+		"password": "123456",
+		"bio": "This is something else about me.",
+		"rating": 2,
+		"memberSince": 2018,
+		"phone": "(111) 141-2111",
+		"location": "23 Bay Rd Christchurch 8045",
+		"qualifications": [
+			"Master of Arts",
+			"Freelance Painter",
+			"Digital Artist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": []
+	},
+	{
+		"_id": "5d7a514b5d2c12c7449be044",
+		"name": "Mark Thomson",
+		"email": "mark@gmail.com",
+		"password": "123456",
+		"bio": "I like to paint.",
+		"rating": 3,
+		"memberSince": 2008,
+		"phone": "(111) 181-2111",
+		"location": "23 Bay Rd Otago 8045",
+		"qualifications": [
+			"Freelance Web Development",
+			"Traditional Artist",
+			"Other"
+		],
+		"photo": "https://github.com/akash-yoobee/application-development/tree/master/s5-entity-relationships",
+		"items": [],
+		"comment": []
+	},
+	{
+		"_id": "5d7a514b5d2c12c7449be045",
+		"name": "John Doe",
+		"email": "john@gmail.com",
+		"password": "123456",
+		"bio": "Paintings have been made by me.",
+		"rating": 5,
+		"memberSince": 2015,
+		"phone": "(111) 141-2111",
+		"location": "2 Geraldine Rd Auckland 8045",
+		"qualifications": [
+			"Freelance Web Development",
+			"Diploma in Web / UX Design",
+			"Watercolorist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [
+			"5d725a4a7b292f5f8ceff789",
+			"5d725c84c4ded7bcb480eaa0"
+		],
+		"comment": []
+	},
+	{
+		"_id": "5d7a514b5d2c12c7449be046",
+		"name": "Kevin Smith",
+		"email": "kevin@gmail.com",
+		"password": "123456",
+		"bio": "My painting remaind me of good artists.",
+		"rating": 2,
+		"memberSince": 2011,
+		"phone": "(111) 141-2191",
+		"location": "23 May Street Christchurch 8055",
+		"qualifications": [
+			"Art Curator",
+			"Freelance Painter",
+			"Digital Artist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [
+			"5d725cb9c4ded7bcb480eaa1",
+			"5d725cd2c4ded7bcb480eaa2"
+		],
+		"comment": []
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc031",
+		"name": "Mary Williams",
+		"email": "mary@gmail.com",
+		"password": "123456",
+		"bio": "I am Japanese and so are my paintings.",
+		"rating": 1,
+		"memberSince": 2000,
+		"phone": "(111) 331-2111",
+		"location": "23 Bay Rd Invercargil 8045",
+		"qualifications": [
+			"Traditional Artist",
+			"Master of Arts"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [
+			"5d725ce8c4ded7bcb480eaa3",
+			"5d725cfec4ded7bcb480eaa4"
+		],
+		"comment": []
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc032",
+		"name": "Sasha Ryan",
+		"email": "sasha@gmail.com",
+		"password": "123456",
+		"bio": "I have a degree. There is no Team in Degree.",
+		"rating": 4,
+		"memberSince": 2007,
+		"phone": "(111) 141-2111",
+		"location": "114 Waterloo Road Christchurch 8335",
+		"qualifications": [
+			"Watercolorist",
+			"Freelance Painter",
+			"Digital Artist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [
+			"5d725cfec4ded7bcb480eaa5",
+			"5d725cfec4ded7bcb480eaa6",
+			"5d725cfec4ded7bcb480eaa7"
+		],
+		"comment": []
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc033",
+		"name": "Richmond Freeman",
+		"email": "richmond@gmail.com",
+		"password": "123456",
+		"bio": "This is something else about me.",
+		"rating": 2,
+		"memberSince": 2008,
+		"phone": "(111) 141-2111",
+		"location": "23 Springfiels Avenue Watsonville 8045",
+		"qualifications": [
+			"Digital Artist",
+			"Freelance Painter",
+			"Traditional Artist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": [
+			"5d7a514b5d2c12c7449be020"
+		]
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc034",
+		"name": "Sherlock Holmes",
+		"email": "sherlock@gmail.com",
+		"password": "7777777",
+		"bio": "I can find missing paintings.",
+		"rating": 5,
+		"memberSince": 2018,
+		"phone": "(111) 141-2551",
+		"location": "23 Street Rd Watsonville 8045",
+		"qualifications": [
+			"Other",
+			"Freelance Painter",
+			"Digital Artist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": [
+			"5d7a514b5d2c12c7449be021"
+		]
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc035",
+		"name": "Greg Harris",
+		"email": "greg@gmail.com",
+		"password": "123456",
+		"bio": "All good painters list their art on ARTmarket.com.",
+		"rating": 1,
+		"memberSince": 2017,
+		"phone": "(111) 141-3366",
+		"location": "7 Disaster Rd Christchurch 8045",
+		"qualifications": [
+			"Diploma in Web / UX Design",
+			"Freelance Painter",
+			"Digital Artist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": [
+			"5d7a514b5d2c12c7449be022"
+		]
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc036",
+		"name": "Derek Glover",
+		"email": "derek@gmail.com",
+		"password": "5768856",
+		"bio": "Only the best art listed on this website.",
+		"rating": 2,
+		"memberSince": 2018,
+		"phone": "(111) 141-2881",
+		"location": "555 Shallow Grove Bloomville 8044",
+		"qualifications": [
+			"Digital Artist",
+			"Freelance Painter"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": [
+			"5d7a514b5d2c12c7449be023"
+		]
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc037",
+		"name": "Stephanie Hanson",
+		"email": "steph@gmail.com",
+		"password": "1237456",
+		"bio": "This is something else about me.",
+		"rating": 4,
+		"memberSince": 2018,
+		"phone": "(111) 151-2111",
+		"location": "23 Bay Rd Otago 8045",
+		"qualifications": [
+			"Freelance Painter",
+			"Digital Artist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": [
+			"5d7a514b5d2c12c7449be024"
+		]
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc038",
+		"name": "Jerry Wiliams",
+		"email": "jerry@gmail.com",
+		"password": "123456",
+		"bio": "There are many painters. But many are not good. Good painters are few.",
+		"rating": 2,
+		"memberSince": 2018,
+		"phone": "(111) 554-2111",
+		"location": "9 Summer Rd Christchurch 8045",
+		"qualifications": [
+			"Freelance Web Development",
+			"Master of Arts",
+			"Digital Artist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": [
+			"5d7a514b5d2c12c7449be025"
+		]
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc039",
+		"name": "Maggie Johnson",
+		"email": "maggie@gmail.com",
+		"password": "1243456",
+		"bio": "A am qualified to sell you digital Art. Buy from me.",
+		"rating": 5,
+		"memberSince": 1999,
+		"phone": "(111) 141-2551",
+		"location": "2 Octagon Square Dunedin 8045",
+		"qualifications": [
+			"Watercolorist"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": [
+			"5d7a514b5d2c12c7449be026"
+		]
+	},
+	{
+		"_id": "5c8a1d5b0190b214360dc040",
+		"name": "Barry Dickens",
+		"email": "barry@gmail.com",
+		"password": "188886",
+		"bio": "This is Barry selling good art.",
+		"rating": 3,
+		"memberSince": 1999,
+		"phone": "(111) 141-2111",
+		"location": "22 Winter Ave Somerville 8422",
+		"qualifications": [
+			"Freelance Web Development",
+			"Freelance Painter",
+			"Master of Arts"
+		],
+		"photo": "https://docs.mongodb.com/manual/reference/method/db.collection.find/#db.collection.find",
+		"items": [],
+		"comment": [
+			"5d7a514b5d2c12c7449be027"
+		]
+	}
+]
