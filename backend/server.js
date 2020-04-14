@@ -2,7 +2,7 @@ const express = require("express")
 const dotenv = require("dotenv")
 const morgan = require("morgan")
 const cors = require("cors")
-// const path = require("path")
+const path = require("path")
 // const BP = require("body-parser")
 
 const app = express()
@@ -24,15 +24,13 @@ app.use("/api/v1/items", items)
 app.use("/api/v1", comments)
 
 // Setting up a static folder to display our API documentation
-// app.use(express.static(path.join(__dirname, "public")))
-app.use(express.static("public"))
+app.use(express.static(path.join(__dirname, "public")))
 
 // Body parser
 // app.use(BP.urlencoded({ extended: false }))
 // app.use(BP.json())
 
-// Dev logging middleware used by Akash
-// Will delete before submitting to Richard
+// Dev logging middleware
 if (process.env.NODE_ENV === "development") {
 	app.use(morgan("dev"))
 }
