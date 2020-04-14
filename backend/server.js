@@ -68,6 +68,10 @@ app.use(function (err, req, res, next) {
 	})
 })
 
+//Bring in modals
+require('./models/Item')
+
+
 // Bringing in files used for routing
 const users = require("./routes/users.js")
 const items = require("./routes/items.js")
