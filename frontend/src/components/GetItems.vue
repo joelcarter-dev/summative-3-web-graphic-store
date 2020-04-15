@@ -1,6 +1,12 @@
 <template>
-	<section class="item-grid">
+	<section class="item-grid" v-if="showDetailed">
 		<div v-for="item in items" :key="item.id" class="item-holder">
+			<GridItem :itemData="item" />
+		</div>
+	</section>
+
+	<section class="item-list" v-else>
+		<div v-for="item in items" :key="item.id" >
 			<DetailedItem :itemData="item" />
 		</div>
 	</section>
@@ -12,12 +18,12 @@
 <script>
 	import axios from "axios"
 	import config from "../../config"
-	//import GridItem from "./GridItem"
+	import GridItem from "./GridItem"
 	import DetailedItem from "./DetailedItem"
 	export default {
 		name: "GetItems",
 		components: {
-			//GridItem,
+			GridItem,
 			DetailedItem
 		},
 		// props may be used to pass in search data if we get to it
@@ -64,6 +70,9 @@
 	padding: 0 5rem
 	max-width: 90rem
 	.item-holder
-		box-shadow: 11px 12px 5px -6px rgba(222,222,222,0.98)
+		box-shadow: 11px 12px 5px -6px rgba(222,222,222,0.20)
 	// 	margin: 0 auto
+.item-list
+	max-width: 90rem
+	margin: 0 auto
 </style>
