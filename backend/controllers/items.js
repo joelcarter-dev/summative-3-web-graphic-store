@@ -9,10 +9,13 @@ exports.getItems = (req, res, next) => {
 	Item.find()
 		//NOTE May need to change for search, but will do for now
 		.sort({ createdAt: 'desc' })
-		.then()
-	res
-		.status(200)
-		.json({ success: true, msg: `Showing all items in the database` })
+		.then(function(items) {
+			return res.json({
+				items: items.map(function(item) {
+				  return item.toJSON();
+				})
+			})
+		})
 }
 
 // @desc      Get single item
