@@ -9,10 +9,10 @@ exports.getItems = (req, res, next) => {
 	Item.find()
 		//NOTE May need to change for search, but will do for now
 		.sort({ createdAt: 'desc' })
-		.then(function(items) {
+		.then(function (items) {
 			return res.json({
-				items: items.map(function(item) {
-				  return item.toJSON();
+				items: items.map(function (item) {
+					return item.toJSON();
 				})
 			})
 		})
@@ -21,10 +21,22 @@ exports.getItems = (req, res, next) => {
 // @desc      Get single item
 // @route     GET /api/v1/items/:id
 exports.getItem = (req, res, next) => {
-	res.status(200).json({
-		success: true,
-		msg: `Showing details of item with id ${req.params.id}`,
-	})
+	Item.findById(req.params.id)
+		.then(function (item) {
+			return res.json({ item: item.toJSON() })
+		})
+		.catch(next)
+}
+
+// @desc      Get items buy an array of ids
+// @route     GET /api/v1/items/:id
+exports.getItem = (req, res, next) => {
+	Item.findById(req.params.id)
+		.then(function (item) {
+			return res.json({ item: item.toJSON() })
+		})
+
+	Item.find().where('_id').in(req.params.id).exec((err, records) => {})
 }
 
 // @desc      Create item

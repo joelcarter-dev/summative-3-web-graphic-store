@@ -4,7 +4,7 @@ import VueRouter from "vue-router"
 import VueResource from "vue-resource"
 
 import LandingPage from "./views/LandingPage"
-import StoreItem from "./views/StoreItem"
+// import StoreItem from "./views/StoreItem"
 import UserProfile from "./views/StoreItem"
 
 // import SignUp from "./views/SignUp.vue"
@@ -35,12 +35,19 @@ const routes = [
 		name: "profile",
 		props: true
 	},
-	{
-		path: "/item/:itemId",
-		component: StoreItem,
-		props: true,
-		name: "item"
-	}
+	// NOTE FOR TESTING
+	// {
+	// 	path: "/profile/",
+	// 	component: UserProfile,
+	// 	name: "profile",
+	// 	props: true
+	// },
+	// // {
+	// 	path: "/item/:itemId",
+	// 	component: StoreItem,
+	// 	props: true,
+	// 	name: "item"
+	// }
 ]
 
 const router = new VueRouter({

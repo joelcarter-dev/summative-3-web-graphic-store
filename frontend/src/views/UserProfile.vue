@@ -1,12 +1,16 @@
 <template>
-	<div class=""></div>
+	<div class="">
+		<!-- <Navbar /> -->
+		<GetItems :showDetailed="true" userId="5e98836d58912e2e2c97a736"/>
+	</div>
 </template>
 
 <script>
-	import GetItems from '../components/ViewItems/GetItemsGetItems';
+	import Navbar from "../components/shared-components/Navbar"
+	import GetItems from "../components/ViewItems/GetItems"
 	export default {
 		name: "UserProfilePage",
-		components: {GetItems}
+		components: {Navbar, GetItems}
 	}
 </script>
 
