@@ -35,12 +35,12 @@ const UserSchema = new Schema({
         type: String,
         required: false
     },
-    items: [{ 
+    items: [{
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Item' }, 
-        {timestamps: true}
-    ]
-}
+        ref: 'Item' 
+    }]
+},
+{timestamps: true}
 )
 
 UserSchema.methods.toJSON = function(){
@@ -56,7 +56,7 @@ UserSchema.methods.toJSON = function(){
    } 
 }
 
-Schema.plugin(mongooseUniqueValidator)
+// Schema.plugin(mongooseUniqueValidator)
 
 module.exports = mongoose.model("User", UserSchema)
 

@@ -20,7 +20,7 @@
 </script>
 
 <style lang="sass" scoped>
-@import "../lib/vars"
+@import "../../lib/vars"
 $imageHeight: 180px
 .detailed-item
     max-width: 

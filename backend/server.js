@@ -70,6 +70,7 @@ app.use(function (err, req, res, next) {
 
 //Bring in modals
 require('./models/Item')
+require('./models/User')
 
 
 // Bringing in files used for routing

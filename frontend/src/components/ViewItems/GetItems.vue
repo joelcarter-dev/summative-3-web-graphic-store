@@ -1,13 +1,13 @@
 <template>
-	<section class="item-grid" v-if="showDetailed">
-		<div v-for="item in items" :key="item.id" class="item-holder">
-			<GridItem :itemData="item" />
+	<section class="item-list" v-if="showDetailed">
+		<div v-for="item in items" :key="item.id" >
+			<DetailedItem :itemData="item" />
 		</div>
 	</section>
 
-	<section class="item-list" v-else>
-		<div v-for="item in items" :key="item.id" >
-			<DetailedItem :itemData="item" />
+	<section class="item-grid" v-else>
+		<div v-for="item in items" :key="item.id" class="item-holder">
+			<GridItem :itemData="item" />
 		</div>
 	</section>
 </template>
@@ -17,7 +17,7 @@
 
 <script>
 	import axios from "axios"
-	import config from "../../config"
+	import config from "../../../config"
 	import GridItem from "./GridItem"
 	import DetailedItem from "./DetailedItem"
 	export default {
@@ -27,7 +27,7 @@
 			DetailedItem
 		},
 		// props may be used to pass in search data if we get to it
-		props: ["searchParams", "showDetailed"],
+		props: ["userId", "showDetailed"],
 		data: function() {
 			return {
 				items: [],
@@ -59,7 +59,7 @@
 </script>
 
 <style lang="sass" scoped>
-@import "../lib/vars"
+// @import "../../../lib/vars"
 .item-grid
 	display: grid
 	grid-template-columns: repeat(auto-fill, 200px)
