@@ -1,6 +1,15 @@
 // @desc      Get all items
 // @route     GET /api/v1/items
+const mongoose = require('mongoose')
+
+const Item = mongoose.model('Item')
+
 exports.getItems = (req, res, next) => {
+	console.log("Get all Items")
+	Item.find()
+		//NOTE May need to change for search, but will do for now
+		.sort({ createdAt: 'desc' })
+		.then()
 	res
 		.status(200)
 		.json({ success: true, msg: `Showing all items in the database` })
