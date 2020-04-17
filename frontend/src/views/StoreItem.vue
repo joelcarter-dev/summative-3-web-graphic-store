@@ -1,5 +1,6 @@
 <template>
 	<div id="app" class="parent">
+		<Navbar />
 		<div class="art">
 			<div class="image">
 				<div>{{ artDetails.image }}</div>
@@ -23,9 +24,10 @@
 </template>
 
 <script>
+	import Navbar from '../components/shared-components/Navbar'
 	export default {
 		name: "StoreItemPage",
-		components: {},
+		components: {Navbar},
   data() {
     return {
       artDetails: [],
