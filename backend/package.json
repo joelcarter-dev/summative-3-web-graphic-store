@@ -11,18 +11,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.9.7",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.10.0"
-=======
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.7"
->>>>>>> a6a641b76661ebc6d4839453bb23f99b1b3222fd
   },
   "devDependencies": {
     "nodemon": "^2.0.3",

@@ -21,6 +21,7 @@ exports.getUsers = (req, res, next) => {
 // @route     GET /api/v1/users/:id
 exports.getUser = (req, res, next) => {
 	User.findById(req.params.id)
+		.populate("items")
 		.then(function (user) {
 			return res.json({ user: user.toJSON() })
 		})

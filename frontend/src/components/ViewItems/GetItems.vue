@@ -1,6 +1,6 @@
 <template>
 	<section class="item-list" v-if="showDetailed">
-		<div v-for="item in items" :key="item.id" >
+		<div v-for="item in items" :key="item.id" class="item-holder">
 			<DetailedItem :itemData="item" />
 		</div>
 	</section>
@@ -27,7 +27,7 @@
 			DetailedItem
 		},
 		// props may be used to pass in search data if we get to it
-		props: ["userId", "showDetailed"],
+		props: ["userItems", "showDetailed"],
 		data: function() {
 			return {
 				items: [],
@@ -49,17 +49,18 @@
 		},
 		watch: {
 			source: async function() {
-				this.items = await this.getItems()
+				//TODO fix items = this.userItems only works sometimes
+				this.items = this.userItems ? this.userItems : await this.getItems()
 			},
 		},
 		created: async function() {
-			this.items = await this.getItems()
+			this.items = this.userItems ? this.userItems : await this.getItems()
 		},
 	}
 </script>
 
 <style lang="sass" scoped>
-// @import "../../../lib/vars"
+@import "../../lib/vars"
 .item-grid
 	display: grid
 	grid-template-columns: repeat(auto-fill, 200px)
@@ -70,9 +71,7 @@
 	padding: 0 5rem
 	max-width: 90rem
 	.item-holder
-		box-shadow: 11px 12px 5px -6px rgba(222,222,222,0.20)
-	// 	margin: 0 auto
+		box-shadow: 2px 2px 9px -2px rgba(0,0,0,0.48)
 .item-list
 	max-width: 90rem
-	margin: 0 auto
 </style>
