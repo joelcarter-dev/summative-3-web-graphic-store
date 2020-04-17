@@ -72,41 +72,40 @@
 </script>
 
 <style lang="sass" scoped>
-.parent {
+.parent 
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	background-color: #ebebeb;
-}
-.art {
+
+.art 
 	display: flex;
 	flex-direction: row;
 	background-color: #ffffff;
 	margin: 4em 1em 4em 4em;
 	padding: 2em;
-}
-.artist {
+
+.artist 
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
 	margin: 4em 4em 4em 1em;
 	padding: 2em;
-}
-.button {
+
+.button 
 	color: #dd1260;
-}
-.image {
+
+.image 
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
 	margin: 4em 4em 4em 1em;
 	padding: 2em;
-}
-.text {
+
+.text 
 	display: flex;
 	flex-direction: column;
 	background-color: #ffffff;
 	margin: 4em 4em 4em 1em;
 	padding: 2em;
-}
 </style>
