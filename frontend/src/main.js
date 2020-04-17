@@ -6,7 +6,6 @@ import VueResource from "vue-resource"
 import LandingPage from "./views/LandingPage"
 import StoreItem from "./views/StoreItem"
 import UserProfile from "./views/StoreItem"
-// import HeaderNav from "./components/shared-components/Header.Vue"
 
 // import SignUp from "./views/SignUp.vue"
 // import LogIn from "./views/LogIn"

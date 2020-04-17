@@ -27,8 +27,8 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "../lib/vars"
+@import "../../lib/vars"
 .header
-  height: 1rem
-  background-color: #1A1A1
+  height: 2rem
+  background-color: #1A1A1A
 </style>
