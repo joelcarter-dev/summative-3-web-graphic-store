@@ -39,7 +39,7 @@ const routes = [
 		path: "/item/:itemId",
 		component: StoreItem,
 		props: true,
-		name: "project"
+		name: "item"
 	}
 ]
 
