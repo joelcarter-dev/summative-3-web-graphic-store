@@ -1,3 +1,6 @@
+const mongoose = require('mongoose')
+const User = mongoose.model('User')
+
 // @desc      Get all users
 // @route     GET /api/v1/users
 exports.getUsers = (req, res, next) => {
@@ -7,10 +10,11 @@ exports.getUsers = (req, res, next) => {
 // @desc      Get single user
 // @route     GET /api/v1/users/:id
 exports.getUser = (req, res, next) => {
-	res.status(200).json({
-		success: true,
-		msg: `Showing details of user with id ${req.params.id}`,
-	})
+	User.findById(req.params.id)
+		.then(function (user) {
+			return res.json({ user: user.toJSON() })
+		})
+		.catch(next)
 }
 
 // @desc      Create user
