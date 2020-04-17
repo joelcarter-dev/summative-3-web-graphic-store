@@ -82,9 +82,6 @@ app.use("/api/v1/users", users)
 app.use("/api/v1/items", items)
 app.use("/api/v1", comments)
 
-// Setting up a folder to display our API documentation
-app.use(express.static("public"))
-
 // finally, let's start our server...
 var server = app.listen(process.env.PORT || 3000, function () {
 	console.log("Listening on port " + server.address().port)

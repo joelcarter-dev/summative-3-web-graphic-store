@@ -9,19 +9,23 @@ exports.getItems = (req, res, next) => {
 	Item.find()
 		//NOTE May need to change for search, but will do for now
 		.sort({ createdAt: 'desc' })
-		.then()
-	res
-		.status(200)
-		.json({ success: true, msg: `Showing all items in the database` })
+		.then(function (items) {
+			return res.json({
+				items: items.map(function (item) {
+					return item.toJSON();
+				})
+			})
+		})
 }
 
 // @desc      Get single item
 // @route     GET /api/v1/items/:id
 exports.getItem = (req, res, next) => {
-	res.status(200).json({
-		success: true,
-		msg: `Showing details of item with id ${req.params.id}`,
-	})
+	Item.findById(req.params.id)
+		.then(function (item) {
+			return res.json({ item: item.toJSON() })
+		})
+		.catch(next)
 }
 
 // @desc      Create item
