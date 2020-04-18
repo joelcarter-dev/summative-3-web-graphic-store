@@ -1,7 +1,7 @@
 <template>
 	<section class="item-list" v-if="showDetailed">
 		<div v-for="item in items" :key="item.id" class="item-holder">
-			<DetailedItem :itemData="item" />
+			<DetailedItem :itemData="item" :isLoggedIn="isLoggedIn"/>
 		</div>
 	</section>
 
@@ -18,8 +18,9 @@
 <script>
 	import axios from "axios"
 	import config from "../../../config"
-	import GridItem from "./GridItem"
-	import DetailedItem from "./DetailedItem"
+	import GridItem from "./ViewItemsGrid"
+	import DetailedItem from "./ViewItemsDetailed"
+	import GetIsLoggedIn from "../../services/auth-service"
 	export default {
 		name: "GetItems",
 		components: {
@@ -31,6 +32,7 @@
 		data: function() {
 			return {
 				items: [],
+				isLoggedIn: false
 			}
 		},
 		methods: {
@@ -55,6 +57,7 @@
 		},
 		created: async function() {
 			this.items = this.userItems ? this.userItems : await this.getItems()
+			this.isLoggedIn = GetIsLoggedIn.isLogedIn()
 		},
 	}
 </script>
@@ -71,7 +74,7 @@
 	padding: 0 5rem
 	max-width: 90rem
 	.item-holder
-		box-shadow: 2px 2px 9px -2px rgba(0,0,0,0.48)
+		box-shadow: 2px 2px 9px -2px rgba(0,0,0,0.30)
 .item-list
 	max-width: 90rem
 </style>

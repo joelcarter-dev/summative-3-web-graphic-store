@@ -6,7 +6,7 @@
 </template>
 
 <script>
-	import GetItems from '../components/ViewItems/GetItems'
+	import GetItems from '../components/ViewItems/ViewItemsGetItems'
 	// import Navbar from '../components/shared-components/Navbar'
 	export default {
 		name: "LandingPage",

@@ -5,7 +5,7 @@
 
 			<div class="about-holder">
 				<div class="top">
-					<img src="https://cdn.shopify.com/s/files/1/0016/7232/files/graphic_art_illustration_43_2048x2048.jpg?v=1564887267" :alt="info.firstName"  class="profile-image">
+					<img src="https://cdn.shopify.com/s/files/1/0016/7232/files/graphic_art_illustration_43_2048x2048.jpg?v=1564887267" :alt="info.firstName" class="profile-image">
 	    			<!-- :src="itemData.image" -->
 					<div class="left">
 						<h1 class="name">{{info.userName}}</h1>
@@ -35,7 +35,7 @@
 
 <script>
 	import Navbar from "../components/shared-components/Navbar"
-	import GetItems from "../components/ViewItems/GetItems"
+	import GetItems from "../components/ViewItems/ViewItemsGetItems"
 	import getUserDetails from "../services/get-user-details"
 	export default {
 		name: "UserProfilePage",
@@ -61,7 +61,7 @@
 	margin: 0 auto
 .about-holder
 	background-color: $white
-	box-shadow: 2px 2px 21px -7px rgba(0,0,0,0.75)
+	box-shadow: 2px 2px 21px -7px rgba(0,0,0,0.30)
 	border-radius: 5px
 	height: max-content
 	padding-bottom: 30px

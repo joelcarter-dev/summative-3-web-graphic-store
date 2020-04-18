@@ -25,7 +25,7 @@ $imageHeight: 180px
 .detailed-item
     max-width: 
     background-color: white
-    box-shadow: 2px 2px 9px -2px rgba(0,0,0,0.48)
+    box-shadow: 2px 2px 9px -2px rgba(0,0,0,0.30)
     display: flex
     max-width: 50rem
     margin-bottom: 20px
