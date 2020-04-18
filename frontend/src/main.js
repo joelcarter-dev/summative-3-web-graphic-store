@@ -6,10 +6,14 @@ import VueResource from "vue-resource"
 import LandingPage from "./views/LandingPage"
 import StoreItem from "./views/StoreItem"
 import UserProfile from "./views/UserProfile"
-// import HeaderNav from "./components/shared-components/Header.Vue"
 
-// import SignUp from "./views/SignUp.vue"
-// import LogIn from "./views/LogIn"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { faUserSecret, faPen, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+
+library.add(faUserSecret, faPen, faTrash)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
@@ -28,28 +32,28 @@ const routes = [
 		path: "/",
 		component: LandingPage,
 		name: "home",
-		props: true
+		props: true,
 	},
 	{
 		path: "/profile/:user",
 		component: UserProfile,
 		name: "profile",
-		props: true
+		props: true,
 	},
- 	{
+	{
 		path: "/item/:itemId",
 		component: StoreItem,
 		props: true,
-		name: "item"
-	}
+		name: "item",
+	},
 ]
 
 const router = new VueRouter({
 	routes,
-	mode: "history"
+	mode: "history",
 })
 
 new Vue({
-	render: h => h(App),
-	router
+	render: (h) => h(App),
+	router,
 }).$mount("#app")

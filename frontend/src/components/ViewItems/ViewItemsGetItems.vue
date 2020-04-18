@@ -12,9 +12,6 @@
 	</section>
 </template>
 
-// TODO add if showDetailed
-// TODO condinal style for grid to list
-
 <script>
 	import axios from "axios"
 	import config from "../../../config"
