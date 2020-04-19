@@ -13,7 +13,7 @@
 </script>
 
 <style lang="sass" scoped>
-@import "../lib/vars"
+@import "../../lib/vars"
 .item
     img
         margin-top: 5px

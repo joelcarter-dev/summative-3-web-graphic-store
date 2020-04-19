@@ -4,13 +4,24 @@ const User = mongoose.model('User')
 // @desc      Get all users
 // @route     GET /api/v1/users
 exports.getUsers = (req, res, next) => {
-	res.status(200).json({ success: true, msg: `Showing all users` })
+	console.log("Get all Users")
+	User.find()
+		//NOTE May need to change for search, but will do for now
+		.sort({ createdAt: 'desc' })
+		.then(function(User) {
+			return res.json({
+				User: User.map(function(item) {
+				  return item.toJSON()
+				})
+			})
+		})
 }
 
 // @desc      Get single user
 // @route     GET /api/v1/users/:id
 exports.getUser = (req, res, next) => {
 	User.findById(req.params.id)
+		.populate("items")
 		.then(function (user) {
 			return res.json({ user: user.toJSON() })
 		})
@@ -19,8 +30,11 @@ exports.getUser = (req, res, next) => {
 
 // @desc      Create user
 // @route     POST /api/v1/users
-exports.createUser = (req, res, next) => {
-	res.status(200).json({ success: true, msg: `New user created` })
+exports.createUser = async (req, res, next) => {
+	console.log('create user')
+	let user = new User(req.body)
+	await user.save()
+	return res.json({ user: user.toJSON() })
 }
 
 // @desc      Update user

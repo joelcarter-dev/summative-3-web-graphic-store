@@ -1,14 +1,11 @@
 <template>
-	<div class="">
-		<Navbar />
-	</div>
+	<div class=""></div>
 </template>
 
 <script>
-	import Navbar from '../components/shared-components/Navbar'
 	export default {
 		name: "SearchPage",
-		components: {Navbar}
+		components: {}
 	}
 </script>
 

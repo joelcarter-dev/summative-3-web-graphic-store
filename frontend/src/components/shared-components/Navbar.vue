@@ -1,31 +1,33 @@
 <template>
-  <div class="header">
-    <img class="logo" src="../../../img/ARTmarket.png" alt="ARTmarket" />
-    <ul>
-      <li>Home</li>
-      <!-- <li>{{ login }}</li> -->
-      <li>List an item</li>
-    </ul>
-  </div>
+	<div class="header">
+		<div class="left">
+			<img src="../../../img/ARTmarket.png" alt="ARTmarket" />
+		</div>
+		<div class="right">
+			<ul>
+				<li>Home</li>
+				<li>List an item</li>
+				<li>{{ login }}</li>
+			</ul>
+		</div>
+	</div>
 </template>
 
 <script>
-// import GetIsLoggedIn from "../../services/auth-service";
-export default {
-  name: "Navbar",
-  data() {
-    return {
-      nav: {
-        login: true,
-      },
-    };
-  },
-};
+	export default {
+		name: "Navbar",
+		data() {
+			return {
+				nav: {
+					login: true,
+				},
+			}
+		},
+	}
 </script>
 
 <style lang="sass" scoped>
 @import "../../lib/vars"
-
 .header
   display: flex
   justify-content: space-between
