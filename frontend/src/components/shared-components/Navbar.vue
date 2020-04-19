@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import GetIsLoggedIn from "../../services/auth-service";
+// import GetIsLoggedIn from "../../services/auth-service";
 export default {
   name: "Navbar",
   data() {
