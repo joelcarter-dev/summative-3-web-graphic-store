@@ -27,7 +27,8 @@
 				</div>
 			</div>
 
-			<GetItems :userItems="info.items" showDetailed="true"/>
+			<CreateItem v-if="showCreate" />
+			<GetItems :userItems="info.items" showDetailed="true" v-else/>
 
 		</div>
 	</div>
@@ -37,12 +38,14 @@
 	import Navbar from "../components/shared-components/Navbar"
 	import GetItems from "../components/ViewItems/ViewItemsGetItems"
 	import getUserDetails from "../services/get-user-details"
+	import CreateItem from "../components/CreateItem/CreateItem"
 	export default {
 		name: "UserProfilePage",
-		components: {GetItems, Navbar},
+		components: {GetItems, Navbar, CreateItem},
 		data: function() {
 			return {
 				info: {},
+				showCreate: true
 			}
 		},
 		created: async function() {

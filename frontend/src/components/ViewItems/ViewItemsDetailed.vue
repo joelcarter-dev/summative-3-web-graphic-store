@@ -1,5 +1,5 @@
 <template>
-    <router-link class="detailed-item" :to="{name: 'item', params: {itemId: itemData.id}}">
+    <router-link class="item-detailed" :to="{name: 'item', params: {itemId: itemData.id}}">
         <div class="left">
            <img src="https://cdn.shopify.com/s/files/1/0016/7232/files/graphic_art_illustration_43_2048x2048.jpg?v=1564887267" :alt="itemData.title" />
 	        <!-- :src="itemData.image" -->
@@ -27,7 +27,6 @@
 @import "../../lib/vars"
 $imageHeight: 180px
 .detailed-item
-    max-width: 
     background-color: white
     box-shadow: 2px 2px 9px -2px rgba(0,0,0,0.30)
     display: flex

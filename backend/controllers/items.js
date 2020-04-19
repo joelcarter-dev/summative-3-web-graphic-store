@@ -41,8 +41,11 @@ exports.getItem = (req, res, next) => {
 
 // @desc      Create item
 // @route     POST /api/v1/items
-exports.createItem = (req, res, next) => {
-	res.status(200).json({ success: true, msg: `New item created` })
+exports.createItem = async (req, res, next) => {
+	console.log('create item')
+  	let item = new Item(req.body)
+  	await item.save()
+  	return res.json({ item: item.toJSON() })
 }
 
 // @desc      Update item

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import GetItems from "../components/GetItems";
+import GetItems from "../components/ViewItems/ViewItemsGetItems";
 import Navbar from "../components/shared-components/Navbar";
 // import InfoSection from "../components/Info";
 export default {
