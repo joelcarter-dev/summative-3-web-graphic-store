@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAMA,OAAO,CAAC,+EAAI;AACZ,OAAO,CAAC,oEAAI",
+    "mappings": "AAWA,OAAO,CAAC,+EAAI;AACZ,OAAO,CAAC,oEAAI",
     "sources": [
         "../vars.sass"
     ],

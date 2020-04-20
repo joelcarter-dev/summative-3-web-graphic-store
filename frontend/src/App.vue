@@ -10,4 +10,10 @@
 	}
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+
+ *
+    margin: 0;
+
+
+</style>

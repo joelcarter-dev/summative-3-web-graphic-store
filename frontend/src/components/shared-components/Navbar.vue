@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <img class="logo" src="../../../img/ARTmarket.png" alt="ARTmarket" />
+    <img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" />
     <ul>
       <li>Home</li>
       <li>List an item</li>
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-var loggedIn = require('../../services/auth-service')
-var getUserDetails = require('../../services/get-user-details')
-import config from "../../../config";
-import axios from "axios"
+// import isLoggedIn from "../../services/auth-service";
+// import getUserDetails from "../../services/get-user-details";
+// import config from "../../../config";
+// import axios from "axios";
 export default {
   name: "Navbar",
   data() {
@@ -22,10 +22,12 @@ export default {
         name: "Chris",
         login: true
       },
-      methods: {
-        getUser: getUserDetails(),
-        logIn: loggedIn()
-      }
+      //   created: function() {
+      //     if ((isLoggedIn = false)) {
+      //       this.$router.push({ path: "/login" });
+      //     }
+      //     getUserDetails()
+      // }
     };
   }
 };
@@ -38,7 +40,7 @@ export default {
   display: flex
   justify-content: space-between
   align-items: center
-  padding: 1rem 2rem
+  padding: 1.5rem 3rem
   background-color: #1A1A1A
   color: white
 

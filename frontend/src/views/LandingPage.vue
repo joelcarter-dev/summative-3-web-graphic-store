@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="view">
     <Navbar />
     <InfoSection />
     <GetItems :showDetailed="false" />
@@ -16,4 +16,5 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped></style>
+<style lang="sass" scoped>
+</style>

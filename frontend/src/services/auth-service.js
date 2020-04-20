@@ -1,5 +1,5 @@
 module.exports = {
-    isLogedIn: function() {
+    isLoggedIn: function() {
         // return localStorage.userId !== undefined
         return true
     }
