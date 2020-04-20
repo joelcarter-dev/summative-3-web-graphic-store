@@ -2,9 +2,10 @@
   <div class="header">
     <img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" />
     <ul>
-      <li>Home</li>
-      <li>List an item</li>
-      <li v-if="login">{{ name }}</li>
+      <router-link><li>Home</li></router-link>
+      <router-link><li>List an item</li></router-link>
+      <!-- SIGN IN OR PROFILE, DEPENDING ON LOGGED IN STATUS -->
+      <router-link><li v-if="login">{{ name }}</li></router-link>
     </ul>
   </div>
 </template>
@@ -13,6 +14,7 @@
 import GetIsLoggedIn from "../../services/auth-service";
 import UserDetails from "../../services/get-user-details";
 export default {
+  props: [],
   name: "Navbar",
   data() {
     return {
@@ -27,18 +29,6 @@ export default {
     };
   }
 };
-
-// getUser: function() {
-//           return axios
-//             .get(`${config.apiUrl}/users/`)
-//             .then(function(response) {
-//               return response.data.users
-//             })
-//             .catch(function(error) {
-//               // handle error
-//               console.log(error)
-//             });
-//         },
 
 </script>
 

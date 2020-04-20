@@ -3,28 +3,49 @@
     <h1 class="heading">Buy and sell digital art online!</h1>
     <h2 class="sub-heading">100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
     <div class="buttons">
-    <Button @click:name="name" />
-      <ButtonInverse />
+      <!-- DYNAMIC BUTTON: SIGN IN BUTTON WHEN LOGGED OUT, LIST AN ITEM WHEN LOGGED IN -->
+      <Btn @click:something="something" />
+      <!-- DYNAMIC BUTTON: SIGN UP BUTTON WHEN LOGGED OUT, VIEW LISTINGS WHEN LOGGED IN -->
+      <BtnInverse @click:something="something" />
     </div>
     <div class="stock-images">
-      <img class="image-wide" src="https://images.pexels.com/photos/1012982/pexels-photo-1012982.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-      <img class="image-long" src="https://images.pexels.com/photos/2983226/pexels-photo-2983226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-      <img class="image-wide" src="https://images.pexels.com/photos/1194420/pexels-photo-1194420.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-      <img class="image-long" src="https://images.pexels.com/photos/2983226/pexels-photo-2983226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-      <img class="image-wide" src="https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png">
-      <img class="image-long" src="https://images.pexels.com/photos/2983226/pexels-photo-2983226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
-      </div>
+      <!-- HARD CODED FOR NOW -->
+      <img
+        class="image-wide"
+        src="https://images.pexels.com/photos/1012982/pexels-photo-1012982.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      />
+      <img
+        class="image-long"
+        src="https://images.pexels.com/photos/2983226/pexels-photo-2983226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      />
+      <img
+        class="image-wide"
+        src="https://images.pexels.com/photos/1194420/pexels-photo-1194420.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      />
+      <img
+        class="image-long"
+        src="https://images.pexels.com/photos/2983226/pexels-photo-2983226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      />
+      <img
+        class="image-wide"
+        src="https://cdn.pixabay.com/photo/2018/04/06/13/46/poly-3295856_960_720.png"
+      />
+      <img
+        class="image-long"
+        src="https://images.pexels.com/photos/2983226/pexels-photo-2983226.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import Button from "../components/shared-components/Button"
-import ButtonInverse from "../components/shared-components/ButtonInverse"
+import Btn from "../components/shared-components/Btn";
+import BtnInverse from "../components/shared-components/BtnInverse";
 export default {
   name: "InfoSection",
-  components: { Button, ButtonInverse },
+  components: { Btn, BtnInverse },
   data() {
-    return {};
+    return {}
   }
 };
 </script>
@@ -63,5 +84,4 @@ export default {
 .image-long
   height: 15rem
   margin: 2rem 1.5rem 0 0
-
 </style>
