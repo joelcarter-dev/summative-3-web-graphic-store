@@ -1,5 +1,5 @@
 <template>
-  <div class>
+  <div class="">
     <Navbar />
     <InfoSection />
     <GetItems :showDetailed="false" />
