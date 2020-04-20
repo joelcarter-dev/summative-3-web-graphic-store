@@ -1,19 +1,20 @@
 <template>
-  <div class="">
+  <div class="view">
     <Navbar />
-    <!-- <InfoSection /> -->
+    <InfoSection />
     <GetItems :showDetailed="false" />
   </div>
 </template>
 
 <script>
-import GetItems from "../components/GetItems";
+import GetItems from "../components/ViewItems/ViewItemsGetItems";
 import Navbar from "../components/shared-components/Navbar";
-// import InfoSection from "../components/Info";
+import InfoSection from "../components/Info";
 export default {
   name: "LandingPage",
-  components: { GetItems, Navbar },
+  components: { GetItems, Navbar, InfoSection }
 };
 </script>
 
-<style lang="sass" scoped></style>
+<style lang="sass" scoped>
+</style>
