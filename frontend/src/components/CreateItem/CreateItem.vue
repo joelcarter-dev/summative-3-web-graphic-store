@@ -2,13 +2,20 @@
 	<div class="create-item-holder">
 		<h2 class="create-item-title">List new item</h2>
 
+		<div v-if="errors.length" class="error-holder">
+			<span>Please correct the following error(s):</span>
+			<ul>
+				<li v-for="error in errors" :key="error">{{error}}</li>
+			</ul>
+		</div>
+
 		<div class="form-holder">
-			<form @submit="checkForm">
+			<form @submit.prevent="checkForm">
 				<div class="title wrapper">
 					<label for="title">Title</label>
 					<input type="text" v-model="itemData.title" />
 				</div>
-				<div class="-description wrapper">
+				<div class="description wrapper">
 					<label for="description">Description</label>
 					<textarea
 						name="description"
@@ -17,14 +24,21 @@
 					/>
 				</div>
 
+				<div class="price wrapper">
+					<label for="price">Price</label>
+					<input type="number" v-model="itemData.price" />
+				</div>
+
 				<div class="image wrapper">
 					<label for="title">Image URL</label>
 					<input type="text" v-model="itemData.image" />
 				</div>
 				
 				<div class="submit-wrapper">
-					<input type="submit" class="button" value="Upload" />
-					<input type="submit" class="button" value="Cancel" />
+					<button type="submit">
+						<Button value="Upload" :click="checkForm"/>
+					</button>
+					<ButtonInverse value="Cancel"/>
 				</div>
 			</form>
 		</div>
@@ -35,10 +49,15 @@
 	import axios from "axios"
 	import config from "../../../config"
 	import GetIsLoggedIn from "../../services/auth-service"
+
+	import Button from "../../components/shared-components/Button"
+	import ButtonInverse from "../../components/shared-components/ButtonInverse"
+
 	export default {
 		name: "CreateItem",
 		components: {
-
+			Button,
+			ButtonInverse
 		},
 		data: function() {
 			return {
@@ -46,18 +65,36 @@
 					title: "",
 					price: 0,
 					about: "",
-					imageUrl: ""
+					imageUrl: "",
+					artist: this.$route.params.user
 				},
 				isLoggedIn: false,
+				errors: []
 			}
 		},
 		methods: {
-			checkForm: function() {
+			checkForm: function(event) {
+				console.log("called")
+				event.preventDefault()
+				this.errors = []
 
+				if (!this.itemData.title) {
+					this.errors.push("Item Title Required")
+				}
+				if (!this.itemData.about) {
+					this.errors.push("Project Description Required")
+				}
+				if (!this.itemData.image) {
+					this.errors.push("Item Image URL Required")
+				}
+				if (!this.errors.length) {
+					this.createItem()
+				}
 			},
 			createItem: function() {
+				console.log("create item called")
 				return axios
-					.post(`${config.apiUrl}/item`, this.itemData)
+					.post(`${config.apiUrl}/items`, this.itemData)
 					.then(() => {
 					// handle success
 
@@ -89,11 +126,14 @@
 		margin-left: 30px
 	.form-holder
 		padding: 20px 30px 30px 30px
+	.submit-wrapper
+		display: flex
+		justify-content: center
 	.wrapper
 		margin-bottom: 30px
 		input, textarea
 			border-radius: 5px
-			background-color: $darkGrey
+			background-color: $inputGrey
 			border: 0
 			display: block
 			width: 100%
@@ -104,6 +144,9 @@
 			display: block
 			font-family: 'Open Sans', sans-serif
 			color: $fontBlack
-		
+	.error-holder
+		padding: 30px
+		span, li
+			font-family: 'Open Sans', sans-serif
 
 </style>

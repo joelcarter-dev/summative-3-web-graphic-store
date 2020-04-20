@@ -1,13 +1,14 @@
 <template>
   <div class="button">
-      <button class="button-solid">Button</button>
+      <button class="button-solid">{{value ? value : "Button"}}</button>
   </div>
 </template>
 
 <script>
 export default {
-    name: "ButtonInverse"
-};
+    name: "ButtonInverse",
+    props: ["value"]
+}
 </script>
 
 <style lang="sass" scoped>
