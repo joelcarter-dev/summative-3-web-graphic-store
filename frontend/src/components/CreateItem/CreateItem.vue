@@ -61,7 +61,7 @@
 			return {
 				itemData: {
 					name: "",
-					price: 0,
+					price: null,
 					about: "",
 					imageUrl: "",
 					artist: this.$route.params.user
@@ -114,13 +114,14 @@
 <style lang="sass" scoped>
 @import "../../lib/vars"
 .create-item-holder
+	margin-top: 50px
 	background-color: $white
 	box-shadow: 2px 2px 21px -7px rgba(0,0,0,0.30)
 	border-radius: 5px
 	min-width: 340px
 	height: max-content
 	.create-item-title
-		font-family: 'Open Sans', sans-serif
+		font-family: $redHeading
 		color: $mainRed
 		font-size: 20px
 		margin-left: 30px
