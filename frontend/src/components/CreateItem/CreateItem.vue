@@ -13,7 +13,7 @@
 			<form @submit.prevent="checkForm">
 				<div class="title wrapper">
 					<label for="title">Title</label>
-					<input type="text" v-model="itemData.title" />
+					<input type="text" v-model="itemData.name" />
 				</div>
 				<div class="description wrapper">
 					<label for="description">Description</label>
@@ -35,9 +35,7 @@
 				</div>
 				
 				<div class="submit-wrapper">
-					<button type="submit">
-						<Button value="Upload" :click="checkForm"/>
-					</button>
+					<Button value="Upload" type="submit"/>
 					<ButtonInverse value="Cancel"/>
 				</div>
 			</form>
@@ -62,7 +60,7 @@
 		data: function() {
 			return {
 				itemData: {
-					title: "",
+					name: "",
 					price: 0,
 					about: "",
 					imageUrl: "",
@@ -74,11 +72,13 @@
 		},
 		methods: {
 			checkForm: function(event) {
-				console.log("called")
 				event.preventDefault()
 				this.errors = []
 
-				if (!this.itemData.title) {
+				if (!this.isLoggedIn) {
+					this.errors.push("Please Log In")
+				}
+				if (!this.itemData.name) {
 					this.errors.push("Item Title Required")
 				}
 				if (!this.itemData.about) {
@@ -106,7 +106,7 @@
 				},
 		},
 		created: async function() {
-			this.isLoggedIn = GetIsLoggedIn.isLogedIn()
+			this.isLoggedIn = GetIsLoggedIn.isLoggedIn()
 		},
 	}
 </script>

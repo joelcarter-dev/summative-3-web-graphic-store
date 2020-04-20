@@ -1,13 +1,13 @@
 <template>
   <div class="button">
-      <button class="button-solid">{{value ? value : "Button"}}</button>
+      <button :type="type ? type : 'button'" class="button-solid">{{value ? value : 'Button'}}</button>
   </div>
 </template>
 
 <script>
 export default {
     name: "Button",
-    props: ["value"]
+    props: ["type", "value"]
 }
 </script>
 
