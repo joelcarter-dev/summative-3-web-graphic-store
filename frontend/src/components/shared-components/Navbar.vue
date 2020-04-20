@@ -10,10 +10,8 @@
 </template>
 
 <script>
-// import isLoggedIn from "../../services/auth-service";
-// import getUserDetails from "../../services/get-user-details";
-// import config from "../../../config";
-// import axios from "axios";
+// import LoginCheck from "../../services/auth-service";
+import getUserDetails from "../../services/get-user-details";
 export default {
   name: "Navbar",
   data() {
@@ -22,12 +20,12 @@ export default {
         name: "Chris",
         login: true
       },
-      //   created: function() {
-      //     if ((isLoggedIn = false)) {
-      //       this.$router.push({ path: "/login" });
-      //     }
-      //     getUserDetails()
-      // }
+        created: function() {
+          // if (LoginCheck.isLoggedIn = false) {
+          //   this.$router.push({ path: "/login" });
+          // }
+          getUserDetails()
+      }
     };
   }
 };
