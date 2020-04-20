@@ -1,14 +1,14 @@
 <template>
   <div class="button">
-      <button :type="type ? type : 'button'" class="button-solid">{{value ? value : 'Button'}}</button>
+      <router-link :to="{name: link}" class="button-solid">{{value}}</router-link>
   </div>
 </template>
 
 <script>
 export default {
-    name: "Button",
-    props: ["type", "value"]
-}
+    props: ["text", "link"],
+    name: "BtnInverse"
+};
 </script>
 
 <style lang="sass" scoped>
@@ -17,10 +17,9 @@ export default {
 .button
     display: flex
     .button-solid
-        background-color: $mainRed
+        color: black
         border: 2px $mainRed solid
         border-radius: 5px
-        color: white
         box-shadow: 6px 6px 6px #C1C1C1
         font-size: 0.9rem
         font-weight: 500
@@ -30,6 +29,7 @@ export default {
         letter-spacing: 1px
         width: 8rem
         font-family: "Open Sans", sans serif
-        margin-top: 1.5rem
+        border-radius: 5px
+        margin: 1.5rem 0 0 2rem
         padding-top: 9px
 </style>
