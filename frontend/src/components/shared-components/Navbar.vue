@@ -3,23 +3,31 @@
     <img class="logo" src="../../../img/ARTmarket.png" alt="ARTmarket" />
     <ul>
       <li>Home</li>
-      <!-- <li>{{ login }}</li> -->
       <li>List an item</li>
+      <li v-if="login">{{ name }}</li>
     </ul>
   </div>
 </template>
 
 <script>
-// import GetIsLoggedIn from "../../services/auth-service";
+var loggedIn = require('../../services/auth-service')
+var getUserDetails = require('../../services/get-user-details')
+import config from "../../../config";
+import axios from "axios"
 export default {
   name: "Navbar",
   data() {
     return {
       nav: {
-        login: true,
+        name: "Chris",
+        login: true
       },
+      methods: {
+        getUser: getUserDetails(),
+        logIn: loggedIn()
+      }
     };
-  },
+  }
 };
 </script>
 
@@ -37,14 +45,26 @@ export default {
 ul
   display: flex
   justify-content: flex-end
-  // not working, still aligns to the left of the container
   padding: 0
 
 li
   text-align: right
   margin: 0rem 0rem 0rem 1rem
   list-style-type: none
+  font-family: "Poppins", sans-serif
 
 .logo
   height: 2rem
 </style>
+
+// getUser: function() {
+//           return axios
+//             .get(`${config.apiUrl}/users/`)
+//             .then(function(response) {
+//               return response.data.users
+//             })
+//             .catch(function(error) {
+//               // handle error
+//               console.log(error)
+//             });
+//         },

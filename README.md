@@ -106,6 +106,18 @@ components/
 |- MyComponent.vue
 ```
 
+- Child components that are tightly coupled with their parent should include the parent component name as a prefix.
+
+```javascript
+components/
+|- TodoList.vue
+|- TodoListItem.vue
+|- TodoListItemButton.vue
+components/
+|- SearchSidebar.vue
+|- SearchSidebarNavigation.vue
+```
+
 - Always use key with v-for
 ```javascript
 <ul>

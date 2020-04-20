@@ -1,25 +1,23 @@
 <template>
-	<section class="item-grid" v-if="showDetailed">
+	<section class="item-list" v-if="showDetailed">
+		<div v-for="item in items" :key="item.id" class="item-holder">
+			<DetailedItem :itemData="item" :isLoggedIn="isLoggedIn"/>
+		</div>
+	</section>
+
+	<section class="item-grid" v-else>
 		<div v-for="item in items" :key="item.id" class="item-holder">
 			<GridItem :itemData="item" />
 		</div>
 	</section>
-
-	<section class="item-list" v-else>
-		<div v-for="item in items" :key="item.id" >
-			<DetailedItem :itemData="item" />
-		</div>
-	</section>
 </template>
-
-// TODO add if showDetailed
-// TODO condinal style for grid to list
 
 <script>
 	import axios from "axios"
-	import config from "../../config"
-	import GridItem from "./GridItem"
-	import DetailedItem from "./DetailedItem"
+	import config from "../../../config"
+	import GridItem from "./ViewItemsGrid"
+	import DetailedItem from "./ViewItemsDetailed"
+	import GetIsLoggedIn from "../../services/auth-service"
 	export default {
 		name: "GetItems",
 		components: {
@@ -27,10 +25,11 @@
 			DetailedItem
 		},
 		// props may be used to pass in search data if we get to it
-		props: ["searchParams", "showDetailed"],
+		props: ["userItems", "showDetailed"],
 		data: function() {
 			return {
 				items: [],
+				isLoggedIn: false
 			}
 		},
 		methods: {
@@ -49,17 +48,19 @@
 		},
 		watch: {
 			source: async function() {
-				this.items = await this.getItems()
+				//TODO fix items = this.userItems only works sometimes
+				this.items = this.userItems ? this.userItems : await this.getItems()
 			},
 		},
 		created: async function() {
-			this.items = await this.getItems()
+			this.items = this.userItems ? this.userItems : await this.getItems()
+			this.isLoggedIn = GetIsLoggedIn.isLogedIn()
 		},
 	}
 </script>
 
 <style lang="sass" scoped>
-@import "../lib/vars"
+@import "../../lib/vars"
 .item-grid
 	display: grid
 	grid-template-columns: repeat(auto-fill, 200px)
@@ -70,9 +71,7 @@
 	padding: 0 5rem
 	max-width: 90rem
 	.item-holder
-		box-shadow: 11px 12px 5px -6px rgba(222,222,222,0.20)
-	// 	margin: 0 auto
+		box-shadow: 2px 2px 9px -2px rgba(0,0,0,0.30)
 .item-list
 	max-width: 90rem
-	margin: 0 auto
 </style>
