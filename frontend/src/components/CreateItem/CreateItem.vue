@@ -49,7 +49,7 @@
 	import GetIsLoggedIn from "../../services/auth-service"
 
 	import Btn from "../../components/shared-components/Btn"
-	import BtnInverse frçom "../../components/shared-components/BtnInverse"
+	import BtnInverse from "../../components/shared-components/BtnInverse"
 
 	export default {
 		name: "CreateItem",
