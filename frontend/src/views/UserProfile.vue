@@ -45,7 +45,7 @@
 		data: function() {
 			return {
 				info: {},
-				showCreate: true
+				showCreate: false
 			}
 		},
 		created: async function() {
@@ -59,7 +59,6 @@
 .profile-holder
 	width: 100%
 	display: flex
-	//justify-content: space-evenly
 	margin: 0 auto
 .about-holder
 	margin: 50px 30px 0 50px

@@ -1,6 +1,6 @@
 <template>
 	<router-link class="item" :to="{name: 'item', params: {itemId: itemData.id}}">
-		<img src="https://cdn.shopify.com/s/files/1/0016/7232/files/graphic_art_illustration_43_2048x2048.jpg?v=1564887267" :alt="itemData.title" />
+		<img :src="itemData.image" :alt="itemData.title" />
 	    <!-- :src="itemData.image" -->
     </router-link>
 </template>

@@ -87,7 +87,7 @@ export default {
 		},
 		viewListings() {
 			// When the ViewListings component has a name and a route I will replace '/' with the correct route
-			this.$router.push('/')
+			this.$router.push({ name: 'profile', params: { userId: this.artDetails.userId } })
 		}
 	},
 	computed: {

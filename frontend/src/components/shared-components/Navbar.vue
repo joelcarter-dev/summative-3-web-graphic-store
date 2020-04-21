@@ -5,7 +5,7 @@
       <router-link><li>Home</li></router-link>
       <router-link><li>List an item</li></router-link>
       <!-- SIGN IN OR PROFILE, DEPENDING ON LOGGED IN STATUS -->
-      <router-link><li v-if="login">{{ name }}</li></router-link>
+      <router-link><li v-if="nav.login">{{ nav.name }}</li></router-link>
     </ul>
   </div>
 </template>
