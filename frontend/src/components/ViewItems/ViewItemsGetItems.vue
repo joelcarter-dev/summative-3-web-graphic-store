@@ -47,7 +47,7 @@
 			},
 		},
 		created: async function() {
-			//this.items = this.userItems ? this.userItems : await this.getItems()
+			this.items = this.userItems ? this.userItems : await this.getItems()
 			this.isLoggedIn = GetIsLoggedIn.isLogedIn()
 		},
 	}
