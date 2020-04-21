@@ -35,8 +35,8 @@
 				</div>
 				
 				<div class="submit-wrapper">
-					<Button value="Upload" type="submit"/>
-					<ButtonInverse value="Cancel"/>
+					<Btn value="Upload" type="submit"/>
+					<BtnInverse value="Cancel"/>
 				</div>
 			</form>
 		</div>
@@ -48,14 +48,14 @@
 	import config from "../../../config"
 	import GetIsLoggedIn from "../../services/auth-service"
 
-	import Button from "../../components/shared-components/Button"
-	import ButtonInverse from "../../components/shared-components/ButtonInverse"
+	import Btn from "../../components/shared-components/Btn"
+	import BtnInverse frçom "../../components/shared-components/BtnInverse"
 
 	export default {
 		name: "CreateItem",
 		components: {
-			Button,
-			ButtonInverse
+			Btn,
+			BtnInverse
 		},
 		data: function() {
 			return {
