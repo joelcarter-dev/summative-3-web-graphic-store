@@ -1,13 +1,13 @@
 <template>
   <div class="button">
-      <button class="button-solid">{{value ? value : "Button"}}</button>
+      <router-link :to="{name: link}" class="button-solid">Button</router-link>
   </div>
 </template>
 
 <script>
 export default {
-    name: "ButtonInverse",
-    props: ["value"]
+    props: ["text", "link"],
+    name: "Button"
 }
 </script>
 
@@ -15,15 +15,21 @@ export default {
 @import "../../lib/vars"
 
 .button
+    display: flex
     .button-solid
-        background-color: none
-        border-color: $mainRed
+        color: black
+        border: 2px $mainRed solid
+        border-radius: 5px
         box-shadow: 6px 6px 6px #C1C1C1
         font-size: 0.9rem
         font-weight: 500
-        height: 2rem
+        text-decoration: none
+        text-align: center
+        height: 1.8rem
+        letter-spacing: 1px
         width: 8rem
         font-family: "Open Sans", sans serif
         border-radius: 5px
         margin: 1.5rem 0 0 2rem
+        padding-top: 9px
 </style>

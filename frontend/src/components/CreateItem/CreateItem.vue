@@ -133,7 +133,7 @@
 		margin-bottom: 30px
 		input, textarea
 			border-radius: 5px
-			background-color: $inputGrey
+			background-color: $background
 			border: 0
 			display: block
 			width: 100%

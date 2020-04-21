@@ -17,6 +17,10 @@ const UserSchema = new Schema({
         required: true,
         maxLength: [15, 'User name cannot exceed 15 characters']
     },
+    imageURL: {
+        type: String,
+        required: false
+    },
     bio: {
         type: String,
         required: false

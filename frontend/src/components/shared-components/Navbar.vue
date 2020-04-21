@@ -10,8 +10,8 @@
 </template>
 
 <script>
-// import LoginCheck from "../../services/auth-service";
-import getUserDetails from "../../services/get-user-details";
+import GetIsLoggedIn from "../../services/auth-service";
+import UserDetails from "../../services/get-user-details";
 export default {
   name: "Navbar",
   data() {
@@ -20,11 +20,9 @@ export default {
         name: "Chris",
         login: true
       },
-        created: function() {
-          // if (LoginCheck.isLoggedIn = false) {
-          //   this.$router.push({ path: "/login" });
-          // }
-          getUserDetails()
+      created: async function() {
+        this.isLoggedIn = GetIsLoggedIn.isLoggedIn();
+        this.GetUserDetails = UserDetails.GetUserDetails();
       }
     };
   }
