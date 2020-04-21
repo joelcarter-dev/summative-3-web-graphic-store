@@ -23,7 +23,8 @@ exports.getUser = (req, res, next) => {
 	User.findById(req.params.id)
 		.populate("items")
 		.then(function (user) {
-			return res.json({ user: user.toJSON() })
+			console.log("get user")
+			return res.json(user.toJSON())
 		})
 		.catch(next)
 }
