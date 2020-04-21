@@ -30,18 +30,6 @@ export default {
   }
 };
 
-// getUser: function() {
-//           return axios
-//             .get(`${config.apiUrl}/users/`)
-//             .then(function(response) {
-//               return response.data.users
-//             })
-//             .catch(function(error) {
-//               // handle error
-//               console.log(error)
-//             });
-//         },
-
 </script>
 
 <style lang="sass" scoped>
