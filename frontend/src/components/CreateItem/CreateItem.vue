@@ -69,7 +69,7 @@
 				},
 		},
 		created: async function() {
-			this.isLoggedIn = GetIsLoggedIn.isLogedIn()
+			this.isLoggedIn = GetIsLoggedIn.isLoggedIn() //typo dude haha, I just fixed it for you
 		},
 	}
 </script>
@@ -93,7 +93,7 @@
 		margin-bottom: 30px
 		input, textarea
 			border-radius: 5px
-			background-color: $darkGrey
+			background-color: $background
 			border: 0
 			display: block
 			width: 100%

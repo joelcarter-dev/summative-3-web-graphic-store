@@ -3,7 +3,7 @@
     <h1 class="heading">Buy and sell digital art online!</h1>
     <h2 class="sub-heading">100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
     <div class="buttons">
-      <Button />
+    <Button @click:name="name" />
       <ButtonInverse />
     </div>
     <div class="stock-images">
