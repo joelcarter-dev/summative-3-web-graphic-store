@@ -6,9 +6,9 @@
 
 <script>
 export default {
-    props: ["value", "link"],
-    name: "Button"
-}
+    props: ["text", "link"],
+    name: "BtnInverse"
+};
 </script>
 
 <style lang="sass" scoped>
