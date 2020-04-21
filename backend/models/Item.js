@@ -8,13 +8,13 @@ const ItemSchema = new mongoose.Schema(
 		image: String,
 		sold: Boolean,
 		// Item can have minimum 1 & maximum 1 User
-		artist: {
+		user: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "User",
 			required: true
 		},
 		// Item can have minimum 0 & maximum many Comment
-		items: [{
+		comment: [{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Comment"
 		}],
@@ -28,7 +28,9 @@ ItemSchema.methods.toJSON = function () {
 		price: this.price,
 		about: this.about,
 		image: this.image,
-		sold: this.sold
+		sold: this.sold,
+		user: this.user,
+		comment: this.comment
 	}
 }
 
