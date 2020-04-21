@@ -8,7 +8,7 @@
 export default {
     props: ["text", "link"],
     name: "Button"
-};
+}
 </script>
 
 <style lang="sass" scoped>

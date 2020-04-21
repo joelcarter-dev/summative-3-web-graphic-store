@@ -3,14 +3,15 @@ import axios from "axios";
 
 const getUserDetails = {
     getUser: function(userId) {
+      console.log(userId)
         return axios
           .get(`${config.apiUrl}/users/${userId}`)
           .then(function(response) {
-            return response.data.user;
+            return response.data
           })
           .catch(function(error) {
             // handle error
-            console.log(error);
+            console.log(error)
           });
     }
 }
