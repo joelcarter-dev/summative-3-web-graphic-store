@@ -7,7 +7,7 @@
 <script>
 export default {
     props: ["text", "link"],
-    name: "Button"
+    name: "Btn"
 };
 </script>
 
