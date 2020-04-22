@@ -8,10 +8,10 @@ import StoreItem from "./views/StoreItem"
 import UserProfile from "./views/UserProfile"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faUserSecret, faPen, faTrash } from "@fortawesome/free-solid-svg-icons"
+import { faUserSecret, faPen, faTrash, faBell } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
-library.add(faUserSecret, faPen, faTrash)
+library.add(faUserSecret, faPen, faTrash, faBell)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

@@ -1,14 +1,14 @@
 <template>
   <div class="button">
-      <button :type="type ? type : 'button'" class="button-solid">{{value ? value : 'Button'}}</button>
+    <router-link :to="{name: link}" class="button-solid">{{value}}</router-link>
   </div>
 </template>
 
 <script>
 export default {
-    name: "Button",
-    props: ["type", "value"]
-}
+  props: ["text", "link"],
+  name: "BtnInverse"
+};
 </script>
 
 <style lang="sass" scoped>

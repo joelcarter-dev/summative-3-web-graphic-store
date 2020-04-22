@@ -1,9 +1,10 @@
 <template>
   <div class="header">
     <img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" />
-    <ul>
-      <router-link><li>Home</li></router-link>
-      <router-link><li>List an item</li></router-link>
+    <div class="nav-links">
+      <router-link class="link" to="">Home</router-link>
+      <router-link class="link" to="">List an item</router-link>
+      <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
       <!-- SIGN IN OR PROFILE, DEPENDING ON LOGGED IN STATUS -->
       <router-link><li v-if="nav.login">{{ nav.name }}</li></router-link>
     </ul>
@@ -43,16 +44,26 @@ export default {
   background-color: #1A1A1A
   color: white
 
-ul
+.fa-lg
+  margin-left: 2rem
+
+.fa-lg:hover
+  color: $mainRed
+
+.nav-links
   display: flex
   justify-content: flex-end
   padding: 0
-
-li
-  text-align: right
-  margin: 0rem 0rem 0rem 1rem
-  list-style-type: none
-  font-family: "Poppins", sans-serif
+  .link
+    display: flex
+    text-align: right
+    margin: 0rem 0rem 0rem 2rem
+    list-style-type: none
+    font-family: "Poppins", sans-serif
+    color: white
+    text-decoration: none
+  .link:hover
+    color: $mainRed
 
 .logo
   height: 2rem

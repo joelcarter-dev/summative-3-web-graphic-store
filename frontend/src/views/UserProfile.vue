@@ -59,6 +59,8 @@
 .profile-holder
 	width: 100%
 	display: flex
+	justify-content: space-evenly
+	background-color: $background
 	margin: 0 auto
 .about-holder
 	margin: 50px 30px 0 50px
