@@ -5,8 +5,7 @@
 
 			<div class="about-holder">
 				<div class="top">
-					<img src="https://cdn.shopify.com/s/files/1/0016/7232/files/graphic_art_illustration_43_2048x2048.jpg?v=1564887267" :alt="info.firstName" class="profile-image">
-	    			<!-- :src="itemData.image" -->
+					<img :src="info.image" :alt="info.firstName" class="profile-image">
 					<div class="left">
 						<h1 class="name">{{info.userName}}</h1>
 						<span>{{info.email}}</span>
@@ -25,6 +24,11 @@
 					<div class="title">Qualifications</div>
 					<p class="content">{{info.qualifications}}</p>
 				</div>
+				
+				<Button 
+					:value="showCreate ? 'View My Items' : 'List An Item' "
+					v-on:click="showCreate = !showCreate"
+				/>
 			</div>
 
 			<CreateItem v-if="showCreate" />
@@ -39,13 +43,14 @@
 	import GetItems from "../components/ViewItems/ViewItemsGetItems"
 	import getUserDetails from "../services/get-user-details"
 	import CreateItem from "../components/CreateItem/CreateItem"
+	import Button from "../components/shared-components/Btn"
 	export default {
 		name: "UserProfilePage",
-		components: {GetItems, Navbar, CreateItem},
+		components: {GetItems, Navbar, CreateItem, Button},
 		data: function() {
 			return {
 				info: {},
-				showCreate: false
+				showCreate: false,
 			}
 		},
 		created: async function() {

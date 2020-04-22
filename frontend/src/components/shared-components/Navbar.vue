@@ -2,34 +2,42 @@
   <div class="header">
     <img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" />
     <div class="nav-links">
-      <router-link class="link" to="">Home</router-link>
-      <router-link class="link" to="">List an item</router-link>
+      <router-link class="link" to="/">Home</router-link>
+      <router-link class="link" :to="{ 
+        name: 'profile', 
+        params: { user: nav.userDetails.id },
+        props: { showCreate: true}
+      }">List an item</router-link>
       <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
       <!-- SIGN IN OR PROFILE, DEPENDING ON LOGGED IN STATUS -->
-      <router-link><li v-if="nav.login">{{ nav.name }}</li></router-link>
+      <router-link v-if="nav.login" :to="{ 
+        name: 'profile', 
+        params: { user: nav.userDetails.id },
+      }">{{nav.name}}</router-link>
     </div>
   </div>
 </template>
 
 <script>
-import GetIsLoggedIn from "../../services/auth-service";
-import UserDetails from "../../services/get-user-details";
+import GetIsLoggedIn from "../../services/auth-service"
+
+import UserDetails from "../../services/get-user-details"
 export default {
   props: [],
   name: "Navbar",
   data() {
     return {
       nav: {
-        name: "Chris",
-        login: true
-      },
-      created: async function() {
-        this.isLoggedIn = GetIsLoggedIn.isLoggedIn();
-        this.GetUserDetails = UserDetails.GetUserDetails();
+        login: true,
+        userDetails: {}
       }
-    };
+    }
+  },
+  created: async function() {
+    this.nav.login = GetIsLoggedIn.isLoggedIn()
+    this.nav.userDetails = UserDetails.getUserDetails("5e9eedead3f3ec672829ec4e")
   }
-};
+}
 
 </script>
 
