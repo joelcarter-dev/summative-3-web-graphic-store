@@ -6,14 +6,18 @@
 
 <script>
 	export default {
-		name: "App"
+		name: "App",
 	}
 </script>
 
 <style lang="sass">
+	@impport "../lib/vars.sass"
+	body, html
+		margin: 0
+		padding: 0
+		height: 100%
+		background-color: #EBEBEB
 
- *
-    margin: 0;
-
-
+	*, *:before, *:after
+	    box-sizing: border-box
 </style>

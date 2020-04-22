@@ -57,12 +57,13 @@
 <style lang="sass" scoped>
 @import "../lib/vars.sass"
 .profile-holder
-	max-width: 90rem
+	width: 100%
 	display: flex
 	justify-content: space-evenly
 	background-color: $background
 	margin: 0 auto
 .about-holder
+	margin: 50px 30px 0 50px
 	background-color: $white
 	box-shadow: 2px 2px 21px -7px rgba(0,0,0,0.30)
 	border-radius: 5px
@@ -72,8 +73,8 @@
 		padding: 30px 30px 0 30px
 	p
 		color: $fontBlack
-	p, h1, span
-		font-family: 'Open Sans', sans-serif
+	p, span
+		font-family: $body
 	.top
 		display: flex
 		border-bottom: 3px solid $mainRed
@@ -85,12 +86,15 @@
 			border-radius: 50%
 		.left
 			padding: 0 0 0 30px
+			h1, span
+				font-family: $heading
 		.left > h1
 			padding: 0
 			margin-top: 0
 	.title
 		color: $mainRed
-		font-family: 'Open Sans', sans-serif
+		font-family: $redHeading
+		font-weight: 600
 		padding: 0 30px 0 0
 		font-size: 20px
 	.profile-item
