@@ -6,10 +6,8 @@
       <router-link class="link" to="">List an item</router-link>
       <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
       <!-- SIGN IN OR PROFILE, DEPENDING ON LOGGED IN STATUS -->
-      <router-link class="link" to="">{{ login }}</router-link>
-      <!-- LOG OUT BUTTON, ONLY IF USER IS LOGGED IN -->
-      <router-link class="link" to="">{{ logout }}</router-link>
-    </div>
+      <router-link><li v-if="nav.login">{{ nav.name }}</li></router-link>
+    </ul>
   </div>
 </template>
 

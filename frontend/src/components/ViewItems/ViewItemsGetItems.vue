@@ -46,14 +46,8 @@
 					})
 			},
 		},
-		watch: {
-			source: async function() {
-				//TODO fix items = this.userItems only works sometimes
-				this.items = this.userItems ? this.userItems : await this.getItems()
-			},
-		},
 		created: async function() {
-			this.items = this.userItems ? this.userItems : await this.getItems()
+			//this.items = this.userItems ? this.userItems : await this.getItems()
 			this.isLoggedIn = GetIsLoggedIn.isLogedIn()
 		},
 	}
