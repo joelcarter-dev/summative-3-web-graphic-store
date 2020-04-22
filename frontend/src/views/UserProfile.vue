@@ -60,7 +60,7 @@
 	max-width: 90rem
 	display: flex
 	justify-content: space-evenly
-	background-color: lightgray
+	background-color: $background
 	margin: 0 auto
 .about-holder
 	background-color: $white
