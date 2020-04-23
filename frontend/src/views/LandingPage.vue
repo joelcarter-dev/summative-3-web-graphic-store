@@ -3,6 +3,7 @@
     <Navbar />
     <InfoSection />
     <Login />
+    <SignUp />
     <GetItems :showDetailed="false" />
   </div>
 </template>
@@ -12,9 +13,10 @@ import GetItems from "../components/ViewItems/ViewItemsGetItems"
 import Navbar from "../components/shared-components/Navbar"
 import InfoSection from "../components/Info"
 import Login from "../components/LogIn"
+import SignUp from "../components/SignUp"
 export default {
   name: "LandingPage",
-  components: { GetItems, Navbar, InfoSection, Login }
+  components: { GetItems, Navbar, InfoSection, Login, SignUp }
 };
 </script>
 

@@ -21,14 +21,14 @@ export default {
         border: 2px $mainRed solid
         border-radius: 5px
         color: white
-        box-shadow: 6px 6px 6px #C1C1C1
+        box-shadow: 6px 6px 6px #1D1D1D
         font-size: 0.9rem
-        font-weight: 500
         text-decoration: none
         text-align: center
         height: 1.8rem
         letter-spacing: 1px
         width: 8rem
         font-family: "Open Sans", sans serif
+        font-weight: 600
         margin-top: 1.5rem
 </style>
