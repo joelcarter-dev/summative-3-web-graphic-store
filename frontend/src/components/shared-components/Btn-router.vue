@@ -1,13 +1,13 @@
 <template>
   <div class="button">
-      <router-link :to="{name: link}" class="button-solid">{{value}}</router-link>
+    <router-link :to="{name: link}" class="button-solid">{{value}}</router-link>
   </div>
 </template>
 
 <script>
 export default {
-    props: ["text", "link"],
-    name: "Btn"
+  props: ["text", "link"],
+  name: "Btn"
 };
 </script>
 
