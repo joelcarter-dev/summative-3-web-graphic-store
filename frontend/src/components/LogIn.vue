@@ -99,15 +99,17 @@ export default {
 
 .sub-heading
   color: white
-  font-family: $heading
-  font-weight: 400
-  font-size: 1rem
+  font-family: $body
+  font-weight: 300
+  font-size: 0.8rem
+  margin: 1rem 0 0.5rem 0
 
 .sign-up
   color: white
-  font-family: $heading
+  font-family: $body
   font-weight: 300
-  font-size: 0.8rem
+  font-size: 0.7rem
+  letter-spacing: 0.3px
   margin: 1.5rem 0 1rem 0
   .bold-text
     font-weight: 600
