@@ -4,9 +4,11 @@
     <h2 class="sub-heading-info">100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
     <div class="buttons-info">
       <!-- DYNAMIC BUTTON: SIGN IN BUTTON WHEN LOGGED OUT, LIST AN ITEM WHEN LOGGED IN -->
-      <Btn-router @click:something="something" />
+      <Btn-router />
       <!-- DYNAMIC BUTTON: SIGN UP BUTTON WHEN LOGGED OUT, VIEW LISTINGS WHEN LOGGED IN -->
-      <BtnInverse-router @click:something="something" />
+      <BtnInverse-router />
+
+
     </div>
     <div class="stock-images">
       <!-- HARD CODED FOR NOW -->
@@ -85,4 +87,6 @@ export default {
 .image-long
   height: 15rem
   margin: 2rem 1.5rem 0 0
+
+
 </style>
