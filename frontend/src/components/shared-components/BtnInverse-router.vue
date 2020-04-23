@@ -7,7 +7,7 @@
 <script>
 export default {
   props: ["text", "link"],
-  name: "BtnInverse"
+  name: "BtnInverseRouter"
 };
 </script>
 
@@ -31,5 +31,4 @@ export default {
         font-family: "Open Sans", sans serif
         border-radius: 5px
         margin: 1.5rem 0 0 2rem
-        padding-top: 9px
 </style>

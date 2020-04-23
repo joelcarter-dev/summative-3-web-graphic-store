@@ -7,7 +7,7 @@
 <script>
 export default {
   props: ["text", "link"],
-  name: "Btn"
+  name: "BtnRouter"
 };
 </script>
 
@@ -31,5 +31,4 @@ export default {
         width: 8rem
         font-family: "Open Sans", sans serif
         margin-top: 1.5rem
-        padding-top: 9px
 </style>

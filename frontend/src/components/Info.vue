@@ -1,12 +1,12 @@
 <template>
   <div class="info">
-    <h1 class="heading">Buy and sell digital art online!</h1>
-    <h2 class="sub-heading">100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
-    <div class="buttons">
+    <h1 class="heading-info">Buy and sell digital art online!</h1>
+    <h2 class="sub-heading-info">100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
+    <div class="buttons-info">
       <!-- DYNAMIC BUTTON: SIGN IN BUTTON WHEN LOGGED OUT, LIST AN ITEM WHEN LOGGED IN -->
-      <Btn @click:something="something" />
+      <Btn-router @click:something="something" />
       <!-- DYNAMIC BUTTON: SIGN UP BUTTON WHEN LOGGED OUT, VIEW LISTINGS WHEN LOGGED IN -->
-      <BtnInverse @click:something="something" />
+      <BtnInverse-router @click:something="something" />
     </div>
     <div class="stock-images">
       <!-- HARD CODED FOR NOW -->
@@ -39,11 +39,11 @@
 </template>
 
 <script>
-import Btn from "../components/shared-components/Btn";
-import BtnInverse from "../components/shared-components/BtnInverse";
+import BtnRouter from "../components/shared-components/Btn-router";
+import BtnInverseRouter from "../components/shared-components/BtnInverse-router";
 export default {
   name: "InfoSection",
-  components: { Btn, BtnInverse },
+  components: { BtnRouter, BtnInverseRouter },
   data() {
     return {}
   }
@@ -56,19 +56,20 @@ export default {
 .info
   margin-left: 8rem
 
-.heading
+.heading-info
   font-family: "Alegreya Sans", sans serif
+  font-weight: bold
   font-size: 2rem
   margin-top: 3rem
   color: $mainRed
   text-shadow: 0px 3px 6px #D6D6D6
 
-.sub-heading
+.sub-heading-info
   font-family: "Open Sans", sans serif
   font-size: 1.2rem
   margin-top: 1rem
 
-.buttons
+.buttons-info
   display: flex
   margin-top: 0.5rem
 

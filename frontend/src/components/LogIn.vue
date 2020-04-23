@@ -1,25 +1,33 @@
 <template>
-  <div class="modal">
-    <h1 class="heading">Welcome</h1>
-    <form @submit="checkForm" class="login-form">
-      <h2 class="sub-heading">Name</h2>
-      <input type="text" name="name" />
-      <h2 class="sub-heading">Username</h2>
-      <input type="text" name="userName" />
-      <Btn @click:="loginUser" />
-    </form>
-    <p class="sign-up">
-      Don't have an account?
-      <a href>Sign up</a>
-    </p>
+  <div>
+    <div class="modal-center">
+      <div class="modal-login">
+        <h1 class="heading">Welcome</h1>
+        <form @submit="checkForm" class="login-form">
+          <h2 class="sub-heading">Name</h2>
+          <input type="text" name="name" />
+          <h2 class="sub-heading">Username</h2>
+          <input type="text" name="userName" />
+          <Btn class="button-modal" @click:="loginUser" />
+        </form>
+        <p class="sign-up">
+          Don't have an account?
+          <span class="bold-text">
+            <a href>Sign up</a>
+          </span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import getIsLoggedIn from "../services/auth-service";
+// import GetIsLoggedIn from "../services/auth-service";
+import Btn from "../components/shared-components/Btn"
 import axios from "axios";
-import * as config from "../config";
+import * as config from "../../config";
 export default {
+  components: { Btn },
   name: "Login",
   data: function() {
     return {
@@ -71,4 +79,43 @@ export default {
 
 <style lang="sass" scoped>
 @import "../lib/vars.sass"
+
+.modal-center
+  display: flex
+  justify-content: center
+  .modal-login
+    text-align: center
+    background-color: $backgroundDark
+    padding: 10px
+    width: 15rem
+    border: 2px solid $mainRed
+    border-radius: 0.2rem
+
+.heading
+  margin: 1rem
+  color: $mainRed
+  font-family: $redHeading
+  font-weight: bold
+
+.sub-heading
+  color: white
+  font-family: $heading
+  font-weight: 400
+  font-size: 1rem
+
+.sign-up
+  color: white
+  font-family: $heading
+  font-weight: 300
+  font-size: 0.8rem
+  margin: 1.5rem 0 1rem 0
+  .bold-text
+    font-weight: 600
+    a
+      color: $mainRed
+
+.button-modal
+  display: flex
+  justify-content: center
+
 </style>
