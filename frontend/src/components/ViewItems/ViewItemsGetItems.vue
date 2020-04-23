@@ -48,7 +48,7 @@
 		},
 		created: async function() {
 			this.items = this.userItems ? this.userItems : await this.getItems()
-			this.isLoggedIn = GetIsLoggedIn.isLogedIn()
+			this.isLoggedIn = GetIsLoggedIn.isLoggedIn()
 		},
 	}
 </script>

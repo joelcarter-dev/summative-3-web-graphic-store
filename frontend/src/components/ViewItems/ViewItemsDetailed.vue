@@ -25,7 +25,7 @@
 <style lang="sass" scoped>
 @import "../../lib/vars"
 $imageHeight: 180px
-.detailed-item
+.item-detailed
     background-color: white
     box-shadow: 2px 2px 9px -2px rgba(0,0,0,0.30)
     display: flex
