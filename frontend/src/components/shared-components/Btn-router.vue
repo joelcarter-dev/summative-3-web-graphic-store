@@ -1,13 +1,13 @@
 <template>
   <div class="button">
-      <router-link :to="{name: link}" class="button-solid">{{value}}</router-link>
+    <router-link :to="{name: link}" class="button-solid">{{value}}</router-link>
   </div>
 </template>
 
 <script>
 export default {
-    props: ["text", "link"],
-    name: "Btn"
+  props: ["text", "link"],
+  name: "BtnRouter"
 };
 </script>
 
@@ -31,5 +31,4 @@ export default {
         width: 8rem
         font-family: "Open Sans", sans serif
         margin-top: 1.5rem
-        padding-top: 9px
 </style>

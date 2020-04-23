@@ -1,12 +1,12 @@
 <template>
   <div class="modal">
-    <h1>Sign up</h1>
+    <h1 class="heading">Sign up</h1>
     <form @submit="checkForm" class="login-form">
-      <h2>Name</h2>
+      <h2 class="sub-heading">Name</h2>
       <input type="text" name="name" />
-      <h2>Username</h2>
+      <h2 class="sub-heading">Username</h2>
       <input type="text" name="userName" />
-      <h2>Email address</h2>
+      <h2 class="sub-heading">Email address</h2>
       <input type="text" name="emailAddress" />
       <Btn @click:="createUser" />
     </form>
@@ -25,16 +25,18 @@ export default {
                 name: "",
                 userName: "",
                 email: ""
-            }
+            },
+            	ohCrap: "",
+				errors: [],
         }
     },
     methods: {
         checkForm: function(evt) {
 			evt.preventDefault()
 				this.errors = []
-				// if (this.ohNoHoney) {
-				// 	this.errors.push("Not so fast mate!!!")
-				// }
+				if (this.ohCrap) {
+					this.errors.push("Not so fast mate!!!")
+				}
 				if (!this.user.email) {
 					this.errors.push("Email required")
 				}
