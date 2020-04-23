@@ -1,12 +1,16 @@
 <template>
 	<div id="app">
-		<router-view></router-view>
+		<!-- v if show login dialog -->
+		<router-view>
+		</router-view>
+		<!-- MODALS -->
 	</div>
 </template>
 
 <script>
 	export default {
 		name: "App",
+		// created: create listener for event that is fired using event bus
 	}
 </script>
 
@@ -20,4 +24,6 @@
 
 	*, *:before, *:after
 	    box-sizing: border-box
+		
+	// MODAL STYLES
 </style>

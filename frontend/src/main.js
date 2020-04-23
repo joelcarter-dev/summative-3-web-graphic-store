@@ -15,6 +15,8 @@ library.add(faUserSecret, faPen, faTrash, faBell)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
+export const EventBus = new Vue()
+
 Vue.config.productionTip = false
 
 // add fonts to fontawsome like this, after importing them
