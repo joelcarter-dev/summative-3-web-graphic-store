@@ -7,6 +7,7 @@
       <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
       <!-- SIGN IN OR PROFILE, DEPENDING ON LOGGED IN STATUS -->
       <router-link><li v-if="nav.login">{{ nav.name }}</li></router-link>
+    </div>
   </div>
 </template>
 
