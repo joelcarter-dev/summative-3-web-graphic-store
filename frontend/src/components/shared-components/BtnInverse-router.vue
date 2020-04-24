@@ -7,7 +7,12 @@
 <script>
 export default {
   props: ["text", "link"],
-  name: "BtnInverseRouter"
+  name: "BtnInverseRouter",
+  data() {
+    return {
+      value: ""
+    }
+  }
 };
 </script>
 

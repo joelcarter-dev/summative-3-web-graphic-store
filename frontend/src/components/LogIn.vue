@@ -23,7 +23,7 @@
 
 <script>
 // import GetIsLoggedIn from "../services/auth-service";
-import Btn from "../components/shared-components/Btn"
+import Btn from "../components/shared-components/Btn";
 import axios from "axios";
 import * as config from "../../config";
 export default {
@@ -119,5 +119,4 @@ export default {
 .button-modal
   display: flex
   justify-content: center
-
 </style>

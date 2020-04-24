@@ -35,6 +35,7 @@ export default {
   name: "SignUp",
   data: function() {
     return {
+      showModal: false,
       user: {
         name: "",
         userName: "",
@@ -132,6 +133,12 @@ export default {
   transition: 0.4s ease-out
 
 .modal-overlay
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100%
+  // overflow-x: visible
+  // overflow-y: visible
   position: absolute
   top: 0
   left: 0
