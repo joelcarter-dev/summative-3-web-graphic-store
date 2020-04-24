@@ -1,14 +1,15 @@
 <template>
   <div class="info">
     <div class="info-indent">
-    <h1 class="heading-info">Buy and sell digital art online!</h1>
-    <h2 class="sub-heading-info">100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
-    <div class="buttons-info">
-      <!-- DYNAMIC BUTTON: SIGN IN BUTTON WHEN LOGGED OUT, LIST AN ITEM WHEN LOGGED IN -->
-      <button class="button solid" @click="showModal">Log in</button>
-      <button class="button inverse" @click="showModal">Sign up</button>
-
-  </div>
+      <h1 class="heading-info">Buy and sell digital art online!</h1>
+      <h2
+        class="sub-heading-info"
+      >100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
+      <div class="buttons-info">
+        <!-- DYNAMIC BUTTON: SIGN IN BUTTON WHEN LOGGED OUT, LIST AN ITEM WHEN LOGGED IN -->
+        <button class="button solid" @click="showLogIn">Log in</button>
+        <button class="button inverse" @click="showSignUp">Sign up</button>
+      </div>
     </div>
     <div class="stock-images">
       <!-- HARD CODED FOR NOW -->
@@ -29,19 +30,24 @@
 </template>
 
 <script>
-import { EventBus } from "../main"
+import { EventBus } from "../main";
 export default {
   name: "InfoSection",
-  components:  {},
+  components: {},
   data() {
     return {
-      value: true
-    }
+      logIn: true,
+      signUp: true
+    };
   },
   methods: {
-    showModal() {
-      var sendData = this.value
-      EventBus.$emit('modal-value', sendData)
+    showLogIn() {
+      var logInData = this.logIn;
+      EventBus.$emit("login-value", logInData);
+    },
+    showSignUp() {
+      var signUpData = this.signUp;
+      EventBus.$emit("modal-value", signUpData);
     }
   }
 };
@@ -77,14 +83,13 @@ export default {
   border: 2px $mainRed solid
   margin-left: 2rem
 
-
 .info
   display: block
   position: relative
   background: url('../../img/backdrop.png')
 
 .info-indent
-  margin-left: 8rem
+  margin-left: 9rem
 
 .heading-info
   font-family: "Alegreya Sans", sans serif
@@ -106,7 +111,7 @@ export default {
 .stock-images
   display: flex
   align-items: top
-  margin: 0.5rem 0 0 8rem
+  margin: 0.5rem 0 0 9rem
   padding-bottom: 3rem
 
 .image-wide
@@ -116,6 +121,4 @@ export default {
 .image-long
   height: 15rem
   margin: 2rem 1.5rem 0 0
-
-
 </style>

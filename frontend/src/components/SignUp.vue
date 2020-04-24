@@ -1,9 +1,5 @@
 <template>
   <div>
-    <!-- TESTING -->
-    <!-- <button class="button-test" @click="showModal = true">Show Modal</button> -->
-    <!-- TESTING ENDED -->
-
     <transition name="fade" appear>
       <div class="modal-overlay" v-if="modal" @click="modal = false">
         <div class="modal-center">
@@ -67,8 +63,8 @@ export default {
     }
   },
   created() {
-    EventBus.$on("modal-value", sendData => {
-      this.modal = sendData;
+    EventBus.$on("modal-value", signUpData => {
+      this.modal = signUpData;
     });
   }
 };
