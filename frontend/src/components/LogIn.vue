@@ -1,28 +1,33 @@
 <template>
   <div>
-    <div class="modal-center">
-      <div class="modal-login">
-        <h1 class="heading">Welcome</h1>
-        <form @submit="checkForm" class="login-form">
-          <h2 class="sub-heading">Name</h2>
-          <input type="text" name="name" />
-          <h2 class="sub-heading">Username</h2>
-          <input type="text" name="userName" />
-          <Btn class="button-modal" @click:="loginUser" />
-        </form>
-        <p class="sign-up">
-          Don't have an account?
-          <span class="bold-text">
-            <a href>Sign up</a>
-          </span>
-        </p>
+    <transition name="fade" appear>
+      <div class="modal-overlay" v-if="modal" @click="modal = false">
+        <div class="modal-center">
+          <div class="modal-login">
+            <h1 class="heading">Welcome</h1>
+            <form @submit="checkForm" class="login-form">
+              <h2 class="sub-heading">Name</h2>
+              <input type="text" name="name" />
+              <h2 class="sub-heading">Username</h2>
+              <input type="text" name="userName" />
+              <Btn class="button-modal" @click:="loginUser" />
+            </form>
+            <p class="sign-up">
+              Don't have an account?
+              <span class="bold-text">
+                <a href>Sign up</a>
+              </span>
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
 // import GetIsLoggedIn from "../services/auth-service";
+import { EventBus } from "../main";
 import Btn from "../components/shared-components/Btn";
 import axios from "axios";
 import * as config from "../../config";
@@ -31,6 +36,7 @@ export default {
   name: "Login",
   data: function() {
     return {
+      modal: false,
       user: {
         email: ""
       },
@@ -41,7 +47,6 @@ export default {
   methods: {
     checkForm: function(event) {
       event.preventDefault();
-
       this.errors = [];
       if (this.ohCrap) {
         this.errors.push("Gotcha");
@@ -63,7 +68,6 @@ export default {
           } else {
             //show message
           }
-
           console.log("logged in for user", response.data.user);
           // handle success
           this.$router.push({ path: "/" });
@@ -73,6 +77,11 @@ export default {
           console.log(error);
         });
     }
+  },
+  created() {
+    EventBus.$on("login-value", logInData => {
+      this.modal = logInData;
+    });
   }
 };
 </script>
@@ -119,4 +128,19 @@ export default {
 .button-modal
   display: flex
   justify-content: center
+
+.modal-overlay
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100%
+  // overflow-x: visible
+  // overflow-y: visible
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 98
+  background-color: rgba(0, 0, 0, 0.3)
 </style>
