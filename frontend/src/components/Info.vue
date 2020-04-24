@@ -47,7 +47,8 @@ export default {
   name: "InfoSection",
   components: { BtnRouter, BtnInverseRouter },
   data() {
-    return {}
+    return {
+    }
   }
 };
 </script>
