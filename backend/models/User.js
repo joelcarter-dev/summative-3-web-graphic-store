@@ -12,6 +12,7 @@ const UserSchema = new Schema({
         required: true,
         maxLength: [15, 'User name cannot exceed 15 characters']
     },
+    // PROFILE PICTURE
     imageURL: {
         type: String,
         required: false
@@ -44,19 +45,16 @@ const UserSchema = new Schema({
 
 UserSchema.methods.toJSON = function(){
    return {
-       id: this._id,
-       firstName: this.firstName,
-       lastName: this.lastName,
-       userName: this.userName,
-       bio: this.bio,
-       email: this.email,
-       phone: this.phone,
-       qualifications: this.qualifications,
-       items: this.items
+        id: this._id,
+        name: this.firstName,
+        userName: this.userName,
+        bio: this.bio,
+        email: this.email,
+        phone: this.phone,
+        qualifications: this.qualifications,
+        items: this.items
    } 
 }
-
-// Schema.plugin(mongooseUniqueValidator)
 
 module.exports = mongoose.model("User", UserSchema)
 

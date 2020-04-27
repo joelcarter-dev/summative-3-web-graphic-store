@@ -1,25 +1,25 @@
 <template>
-    <router-link class="item-detailed" :to="{name: 'item', params: {itemId: itemData.id}}">
-        <div class="left">
-           <img :src="itemData.image" :alt="itemData.title" />
-        </div>
-        <div class="right">
-            <h1>{{itemData.name}}</h1>
-            <span>${{itemData.price}}</span>
-            <p class="description">{{itemData.about}} </p>
-            <div class="admin-buttons" v-if="isLoggedIn">
-                <font-awesome-icon icon="pen" class="admin-icon" />
-                <font-awesome-icon icon="trash" class="admin-icon" />
-            </div>
-        </div>
-    </router-link>
+  <router-link class="item-detailed" :to="{name: 'item', params: {itemId: itemData.id}}">
+    <div class="left">
+      <img :src="itemData.image" :alt="itemData.title" />
+    </div>
+    <div class="right">
+      <h1>{{itemData.name}}</h1>
+      <span>${{itemData.price}}</span>
+      <p class="description">{{itemData.about}}</p>
+      <div class="admin-buttons" v-if="isLoggedIn">
+        <font-awesome-icon icon="pen" class="admin-icon" />
+        <font-awesome-icon icon="trash" class="admin-icon" />
+      </div>
+    </div>
+  </router-link>
 </template>
 
 <script>
-    export default {
-		name: "GridItem",
-		props: ["itemData", "isLoggedIn"],
-	}
+export default {
+  name: "GridItem",
+  props: ["itemData", "isLoggedIn"],
+};
 </script>
 
 <style lang="sass" scoped>

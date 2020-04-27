@@ -9,9 +9,9 @@
               <h2 class="sub-heading">Name</h2>
               <input v-model="user.name" type="text" name="name" />
               <h2 class="sub-heading">Username</h2>
-              <input type="text" name="userName" />
+              <input v-model="user.userName" type="text" name="userName" />
               <h2 class="sub-heading">Email address</h2>
-              <input type="text" name="emailAddress" />
+              <input v-model="user.email" type="text" name="email" />
               <Btn class="button-modal" @click:="createUser" />
             </form>
           </div>
@@ -34,11 +34,11 @@ export default {
     return {
       modal: false,
       user: {
-        name: "",
-        userName: "",
-        email: ""
+        name: null,
+        userName: null,
+        email: null
       },
-      ohCrap: "",
+      botChecker: "",
       errors: []
     };
   },
@@ -46,7 +46,7 @@ export default {
     checkForm: function(evt) {
       evt.preventDefault();
       this.errors = [];
-      if (this.ohCrap) {
+      if (this.botChecker) {
         this.errors.push("Not so fast mate!!!");
       }
       if (!this.user.email) {
