@@ -1,11 +1,7 @@
 <template>
   <div>
-    <!-- TESTING -->
-    <button class="button-test" @click="showModal = true">Show Modal</button>
-    <!-- TESTING ENDED -->
-
     <transition name="fade" appear>
-      <div class="modal-overlay" v-if="showModal" @click="showModal = false">
+      <div class="modal-overlay" v-if="modal" @click="modal = false">
         <div class="modal-center">
           <div class="modal-signup">
             <h1 class="heading">Sign up</h1>
@@ -26,6 +22,7 @@
 </template>
 
 <script>
+import { EventBus } from "../main";
 import Btn from "../components/shared-components/Btn";
 import axios from "axios";
 import * as config from "../../config";
@@ -35,6 +32,7 @@ export default {
   name: "SignUp",
   data: function() {
     return {
+      modal: false,
       user: {
         name: "",
         userName: "",
@@ -63,6 +61,11 @@ export default {
         this.$router.push({ path: "/" });
       });
     }
+  },
+  created() {
+    EventBus.$on("modal-value", signUpData => {
+      this.modal = signUpData;
+    });
   }
 };
 </script>
@@ -111,27 +114,13 @@ export default {
   justify-content: center
   margin-bottom: 1rem
 
-// TESTING
-
-.button-test
-  appearance: none
-  outline: none
-  border: none
-  background: none
-  cursor: pointer
-
-  display: inline-block
-  padding: 15px 25px
-  background-image: linear-gradient(to right, #CC2E5D, #FF5858)
-  border-radius: 8px
-
-  font-size: 18px
-  color: #FFF
-  font-weight: 700
-  box-shadow: 3px 3px 9px rgba (0, 0, 0, 0.4)
-  transition: 0.4s ease-out
-
 .modal-overlay
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 100%
+  // overflow-x: visible
+  // overflow-y: visible
   position: absolute
   top: 0
   left: 0
@@ -140,6 +129,8 @@ export default {
   z-index: 98
   background-color: rgba(0, 0, 0, 0.3)
 
+.fade-enter-active, fade-leave-active
+  transition: opacity .5s
 </style>
 
 // event bus will send an event for everything to listen to
