@@ -35,7 +35,7 @@ export default {
   },
   created: async function() {
     this.nav.login = GetIsLoggedIn.isLoggedIn()
-    this.nav.userDetails = UserDetails.getUserDetails("5e9eedead3f3ec672829ec4e")
+    this.nav.userDetails = UserDetails.getUser("5e9eedead3f3ec672829ec4e")
   }
 }
 
