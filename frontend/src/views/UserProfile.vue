@@ -47,6 +47,7 @@
 	export default {
 		name: "UserProfilePage",
 		components: {GetItems, Navbar, CreateItem, Button},
+		deleteValue: false,
 		data: function() {
 			return {
 				info: {},
