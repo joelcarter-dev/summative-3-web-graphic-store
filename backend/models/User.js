@@ -32,7 +32,7 @@ const UserSchema = new Schema({
         unique: true
     },
     qualifications: {
-        type: String,
+        type: Array,
         required: false
     },
     items: [{

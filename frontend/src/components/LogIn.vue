@@ -1,27 +1,26 @@
 <template>
   <div>
     <transition name="fade" appear>
-      <div class="modal-overlay" v-if="modal" @click="modal = false">
-        <div class="modal-center">
-          <div class="modal-login">
-            <h1 class="heading">Welcome</h1>
-            <form @submit="checkForm" class="login-form">
-              <h2 class="sub-heading">Name</h2>
-              <input type="text" name="name" />
-              <h2 class="sub-heading">Username</h2>
-              <input type="text" name="userName" />
-              <Btn class="button-modal" @click:="loginUser" />
-            </form>
-            <p class="sign-up">
-              Don't have an account?
-              <span class="bold-text">
-                <a href>Sign up</a>
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
+      <div class="modal-overlay" v-if="modal" @click="modal = false"></div>
     </transition>
+    <div class="modal-center" v-if="modal">
+      <div class="modal-login">
+        <h1 class="heading">Welcome</h1>
+        <form @submit="checkForm" class="login-form">
+          <h2 class="sub-heading">Name</h2>
+          <input type="text" name="name" />
+          <h2 class="sub-heading">Username</h2>
+          <input type="text" name="userName" />
+          <Btn class="button-modal" @click:="loginUser" />
+        </form>
+        <p class="sign-up">
+          Don't have an account?
+          <span class="bold-text">
+            <a href>Sign up</a>
+          </span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -92,6 +91,10 @@ export default {
 .modal-center
   display: flex
   justify-content: center
+  position: fixed
+  height: 20rem
+  width: 15rem
+  z-index: 99
   .modal-login
     text-align: center
     background-color: $backgroundDark
@@ -143,4 +146,11 @@ export default {
   bottom: 0
   z-index: 98
   background-color: rgba(0, 0, 0, 0.3)
+
+.fade-enter-active, .fade-leave-active
+  transition: opacity 0.5s
+
+.fade-enter,
+.fade-leave-to
+  opacity: 0
 </style>

@@ -54,13 +54,6 @@
 				showCreate: false,
 			}
 		},
-		deleteItem: function(itemId){
-			this.$http
-			.delete(`${process.env.VUE_APP_API_URL}items/${itemId}`)
-			.then(function(){
-				this.getItems();
-			})
-		},
 		created: async function() {
 			this.info = await getUserDetails.getUser(this.$route.params.user)
 		}

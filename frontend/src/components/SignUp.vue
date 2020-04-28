@@ -1,8 +1,9 @@
 <template>
   <div>
     <transition name="fade" appear>
-      <div class="modal-overlay" v-if="modal" @click="modal = false">
-        <div class="modal-center">
+      <div class="modal-overlay" v-if="modal" @click="modal = false"></div>
+    </transition>
+        <div class="modal-center" v-if="modal">
           <div class="modal-signup">
             <h1 class="heading">Sign up</h1>
             <form @submit="checkForm" class="login-form">
@@ -16,8 +17,6 @@
             </form>
           </div>
         </div>
-      </div>
-    </transition>
   </div>
 </template>
 
@@ -74,6 +73,8 @@ export default {
 @import "../lib/vars.sass"
 
 .modal-center
+  position: fixed
+  z-index: 99
   display: flex
   justify-content: center
   .modal-signup
@@ -118,9 +119,6 @@ export default {
   display: flex
   justify-content: center
   align-items: center
-  height: 100%
-  // overflow-x: visible
-  // overflow-y: visible
   position: absolute
   top: 0
   left: 0
@@ -129,8 +127,12 @@ export default {
   z-index: 98
   background-color: rgba(0, 0, 0, 0.3)
 
-.fade-enter-active, fade-leave-active
-  transition: opacity .5s
+.fade-enter-active, .fade-leave-active
+  transition: opacity 0.5s
+
+.fade-enter,
+.fade-leave-to
+  opacity: 0
 </style>
 
 // event bus will send an event for everything to listen to
