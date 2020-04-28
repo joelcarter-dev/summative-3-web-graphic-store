@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="log-in">
     <transition name="fade" appear>
       <div class="modal-overlay" v-if="modal" @click="modal = false"></div>
     </transition>
@@ -88,12 +88,14 @@ export default {
 <style lang="sass" scoped>
 @import "../lib/vars.sass"
 
-.modal-center
+.log-in
   display: flex
   justify-content: center
-  position: fixed
-  height: 20rem
-  width: 15rem
+  margin: 0rem !important
+
+.modal-center
+  position: absolute
+  margin-top: 16rem
   z-index: 99
   .modal-login
     text-align: center
@@ -108,6 +110,7 @@ export default {
   color: $mainRed
   font-family: $redHeading
   font-weight: bold
+  font-size: 2rem
 
 .sub-heading
   color: white
