@@ -3,20 +3,20 @@
     <transition name="fade" appear>
       <div class="modal-overlay" v-if="modal" @click="modal = false"></div>
     </transition>
-        <div class="modal-center" v-if="modal">
-          <div class="modal-signup">
-            <h1 class="heading">Sign up</h1>
-            <form @submit="checkForm" class="login-form">
-              <h2 class="sub-heading">Name</h2>
-              <input v-model="user.name" type="text" name="name" />
-              <h2 class="sub-heading">Username</h2>
-              <input v-model="user.userName" type="text" name="userName" />
-              <h2 class="sub-heading">Email address</h2>
-              <input v-model="user.email" type="text" name="email" />
-              <Btn class="button-modal" @click:="createUser" />
-            </form>
-          </div>
-        </div>
+    <div class="modal-center" v-if="modal">
+      <div class="modal-signup">
+        <h1 class="heading">Sign up</h1>
+        <form @submit="checkForm" class="login-form">
+          <h2 class="sub-heading">Name</h2>
+          <input v-model="user.name" type="text" name="name" />
+          <h2 class="sub-heading">Username</h2>
+          <input v-model="user.userName" type="text" name="userName" />
+          <h2 class="sub-heading">Email address</h2>
+          <input v-model="user.email" type="text" name="email" />
+          <Btn class="button-modal" @click:="createUser" />
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 

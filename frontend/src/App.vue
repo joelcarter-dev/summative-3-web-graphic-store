@@ -2,10 +2,9 @@
   <div id="app">
 	  <LogIn />
 	  <SignUp />
-    <!-- v if show login dialog -->
+    <!-- v if show login dialog? -->
     <router-view>
     </router-view>
-    <!-- MODALS -->
   </div>
 </template>
 
@@ -15,7 +14,6 @@ import SignUp from "./components/SignUp"
 export default {
 	components: { LogIn, SignUp },
   	name: "App"
-  // created: create listener for event that is fired using event bus
 };
 </script>
 
