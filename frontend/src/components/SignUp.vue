@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sign-up">
     <transition name="fade" appear>
       <div class="modal-overlay" v-if="modal" @click="modal = false"></div>
     </transition>
@@ -72,11 +72,15 @@ export default {
 <style lang="sass" scoped>
 @import "../lib/vars.sass"
 
-.modal-center
-  position: fixed
-  z-index: 99
+.sign-up
   display: flex
   justify-content: center
+  margin: 0rem !important
+
+.modal-center
+  position: absolute
+  margin-top: 16rem
+  z-index: 99
   .modal-signup
     text-align: center
     background-color: $backgroundDark
@@ -90,6 +94,7 @@ export default {
   color: $mainRed
   font-family: $redHeading
   font-weight: bold
+  font-size: 2rem
 
 .sub-heading
   color: white
