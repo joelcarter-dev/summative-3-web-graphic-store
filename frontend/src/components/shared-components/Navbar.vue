@@ -16,13 +16,13 @@
       >{{userDetails.name}}</router-link>
     </div>
     <!-- LOGOUT -->
-    <router-link v-if="!login" @click="login = 'false'">Logout</router-link>
+    <div v-if="!login" @click="login = 'false'">Logout</div>
   </div>
 </template>
 
 <script>
 import { EventBus } from "../../main"
-import GetIsLoggedIn from "../../services/auth-service";
+import Auth from "../../services/auth-service";
 import UserDetails from "../../services/get-user-details";
 export default {
   props: [],
@@ -41,8 +41,8 @@ export default {
     },
   },
   created: async function() {
-    this.login = await GetIsLoggedIn.isLoggedIn()
-    this.userDetails = await UserDetails.getUser(GetIsLoggedIn.getUserId())
+    this.login = await Auth.isLoggedIn()
+    this.userDetails = await UserDetails.getUser(Auth.getUserId())
   }
 }
 </script>
