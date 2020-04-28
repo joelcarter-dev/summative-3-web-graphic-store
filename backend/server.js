@@ -68,9 +68,10 @@ app.use(function (err, req, res, next) {
 	})
 })
 
-//Bring in modals
+//Bringing in models
 require('./models/Item')
 require('./models/User')
+require('./models/Comment')
 
 
 // Bringing in files used for routing

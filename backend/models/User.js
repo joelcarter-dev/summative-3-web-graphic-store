@@ -1,67 +1,45 @@
 const mongoose = require("mongoose")
-const Schema = mongoose.Schema
 
-const UserSchema = new Schema({
-
-    name: {
-        type: String,
-        required: true
+const UserSchema = new mongoose.Schema(
+    {
+        name: String,
+        email: String,
+        password: String,
+        bio: String,
+        photo: String,
+        phone: String,
+        location: String,
+        qualifications: [String],
+        memberSince: Number,
+        // A user can have minimum 0 & maximum many Items
+        item: [{
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'Item' 
+        }],
+        // A user can have minimum 0 & maximum many Comments
+        comment: [{
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'Comment' 
+        }]
     },
-    userName: {
-        type: String,
-        required: true,
-        maxLength: [15, 'User name cannot exceed 15 characters']
-    },
-    imageURL: {
-        type: String,
-        required: false
-    },
-    bio: {
-        type: String,
-        required: false
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    phone: {
-        type: Number,
-        required: false,
-        unique: true
-    },
-    qualifications: {
-        type: String,
-        required: false
-    },
-    items: [{
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Item' 
-    }]
-},
-{timestamps: true}
+    {timestamps: true}
 )
 
 UserSchema.methods.toJSON = function(){
    return {
        id: this._id,
-       firstName: this.firstName,
-       lastName: this.lastName,
-       userName: this.userName,
-       bio: this.bio,
+       name: this.name,
        email: this.email,
+       password: this.password,
+       bio: this.bio,
+       photo: this.photo,
        phone: this.phone,
+       location: this.location,
        qualifications: this.qualifications,
-       items: this.items
+       memberSince: this.memberSince,
+       item: this.item,
+       comment: this.comment
    } 
 }
 
-// Schema.plugin(mongooseUniqueValidator)
-
 module.exports = mongoose.model("User", UserSchema)
-
-//components
-// parent: profile component
-// children: item list (put in shared folder)
-
-// create a folder called shared for child components that are going to be used more than once

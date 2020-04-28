@@ -1,9 +1,8 @@
-// @desc      Get all items
-// @route     GET /api/v1/items
 const mongoose = require('mongoose')
-
 const Item = mongoose.model('Item')
 
+// @desc      Get all items
+// @route     GET /api/v1/items
 exports.getItems = (req, res, next) => {
 	console.log("Get all Items")
 	Item.find()

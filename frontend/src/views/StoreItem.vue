@@ -20,12 +20,11 @@
 						<div class="user-info">
 							<div class="user-name">{{ artistDetails.name }}</div>
 							<div>Member since: {{ artistDetails.memberSince }}</div>
-							<div class="rating">{{ artistRating }}</div>
 						</div>
 					</div>
 					<ul class="qual">
-						<li v-for="qualification in artistQualifications" 
-						:key="qualification[0]">{{ qualification }}</li>
+						<li v-for="(qualification, index) in artistQualifications" 
+						:key="index">{{ qualification }}</li>
 					</ul>
 					<br>
 					<div class="contact">Phone: {{ artistDetails.phone }}</div>
@@ -74,19 +73,17 @@ export default {
         .then(response => response.json())
         .then(json => {
 					this.artistDetails = {
-					image: json.user.photo,
-					name: json.user.name,
-					memberSince: json.user.memberSince,
-					rating: json.user.rating,
-					qualifications: json.user.qualifications,
-					phone: json.user.phone,
-					email: json.user.email
+					image: json.photo,
+					name: json.name,
+					memberSince: json.memberSince,
+					qualifications: json.qualifications,
+					phone: json.phone,
+					email: json.email
 					};
 					this.artistQualifications = this.artistDetails.qualifications
-        });
+				});
 		},
 		viewListings() {
-			// When the ViewListings component has a name and a route I will replace '/' with the correct route
 			this.$router.push({path: `/profile/${ this.artDetails.userId}`})
 		}
 	},
@@ -101,27 +98,6 @@ export default {
 			let price = this.artDetails.price
 			let formattedPrice = parseInt(price).toFixed(2)
 			return formattedPrice
-		},
-		artistRating() {
-			let stars = ""
-			switch (this.artistDetails.rating) {
-			case 1:
-				stars = "★";
-				break;
-			case 2:
-				stars = "★★";
-				break;
-			case 3:
-				stars = "★★★";
-				break;
-			case 4:
-				stars = "★★★★";
-				break;
-			case 5:
-				stars = "★★★★★";
-				break;
-			}
-			return stars
 		}
 	},
   created: function() {
@@ -131,7 +107,6 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap')
 
 .shell
@@ -153,7 +128,7 @@ export default {
 .item-image
 	padding: 1.5em 2.5em 1.5em 1.5em
 .name
-	font-family: 'Open Sans', sans-serif
+	font-family: 'Poppins', sans-serif
 	text-align: left
 	font-size: 1.7em
 	font-weight: bold
@@ -213,8 +188,4 @@ export default {
 .contact
 	color: #dd1260
 	font-weight: 600
-.rating
-	color: #dd1260
-	font-size: 1.5em
-	padding: 0.2em 0em 0em 0em
 </style>
