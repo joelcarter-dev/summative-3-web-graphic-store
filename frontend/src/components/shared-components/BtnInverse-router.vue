@@ -1,13 +1,22 @@
 <template>
   <div class="button">
+<<<<<<< HEAD
     <router-link :to="{name: link}" class="button-solid">{{text}}</router-link>
+=======
+    <router-link :to="{name: link}" class="button-solid inverse">{{value}}</router-link>
+>>>>>>> df31aa60d9c16fe11340a262834a1e3af3b97eed
   </div>
 </template>
 
 <script>
 export default {
   props: ["text", "link"],
-  name: "BtnInverseRouter"
+  name: "BtnInverseRouter",
+  data() {
+    return {
+      value: ""
+    }
+  }
 };
 </script>
 
