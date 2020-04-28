@@ -2,8 +2,6 @@
   <div class="view">
     <Navbar />
     <InfoSection />
-    <Login />
-    <SignUp />
     <GetItems :showDetailed="false" />
   </div>
 </template>

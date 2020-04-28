@@ -29,7 +29,7 @@
 				
 				<Button 
 					:value="showCreate ? 'View My Items' : 'List An Item' "
-					v-on:click="showCreate = !showCreate"
+					v-on:click.native="showCreate = !showCreate"
 				/>
 			</div>
 

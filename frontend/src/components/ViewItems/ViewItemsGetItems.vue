@@ -5,6 +5,12 @@
 		</div>
 	</section>
 
+	<section class="item-grid" v-else-if="!userItems">
+		<div v-for="item in items" :key="item.id" class="item-holder">
+			<GridItem :itemData="item" />
+		</div>
+	</section>
+
 	<section class="item-grid" v-else>
 		<div v-for="item in items" :key="item.id" class="item-holder">
 			<GridItem :itemData="item" />
@@ -47,7 +53,7 @@
 			},
 		},
 		created: async function() {
-			this.items = this.userItems ? this.userItems : await this.getItems()
+			this.items =  await this.getItems()
 			this.isLoggedIn = GetIsLoggedIn.isLoggedIn()
 		},
 	}
