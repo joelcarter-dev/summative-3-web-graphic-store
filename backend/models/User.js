@@ -22,11 +22,10 @@ const UserSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'Item' 
     }],
-    // Comment not required yet
-    // comment: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Comment'
-    // }]
+    comment: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Comment'
+    }]
 },
 {timestamps: true}
 )
@@ -44,7 +43,7 @@ UserSchema.methods.toJSON = function(){
         qualifications: this.qualifications,
         memberSince: this.memberSince,
         items: this.items,
-        // comment: this.comment
+        comment: this.comment
    } 
 }
 
