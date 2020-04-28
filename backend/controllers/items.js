@@ -35,8 +35,8 @@ exports.getItem = (req, res, next) => {
 			return res.json({ item: item.toJSON() })
 		})
 
-	Item.find().where('_id').in(req.params.id).exec((err, records) => {})
-}
+// 	Item.find().where('_id').in(req.params.id).exec((err, records) => {})
+// }
 
 // @desc      Create item
 // @route     POST /api/v1/items
@@ -59,9 +59,10 @@ exports.updateItem = (req, res, next) => {
 // @desc      Delete item
 // @route     DELETE /api/v1/items/:id
 exports.deleteItem = (req, res, next) => {
-	res
-		.status(200)
-		.json({ success: true, msg: `Item with id ${req.params.id} deleted` })
+	console.log('Item Deleted')
+	Item.findByIdAndRemove(req.Item.id)
+	return res.sendStatus(204)
+	// .json({ success: true, msg: `Item with id ${req.params.id} deleted` })
 }
 
 // @desc      Get items listed at more than the price sent by the user

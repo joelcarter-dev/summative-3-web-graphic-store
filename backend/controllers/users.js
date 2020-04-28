@@ -41,11 +41,11 @@ exports.createUser = async (req, res, next) => {
 
 // @desc      Update user
 // @route     PUT /api/v1/users/:id
-exports.updateUser = (req, res, next) => {
-	res.status(200).json({
-		success: true,
-		msg: `User info has been updated for user with id ${req.params.id}`,
-	})
+exports.updateUser = async (req, res, next) => {
+	console.log('update user-->', req.body);
+	let updatedUser = _.extend(req.user, req.body)
+	await updatedUser.save()
+	return res.json({ user: updatedUser.toJSON() })
 }
 
 // @desc      Update user rating
@@ -68,12 +68,13 @@ exports.deleteUser = (req, res, next) => {
 // @desc      Add a comment
 // @route     POST /api/v1/users/:userId/items/:itemId/comments
 exports.addComment = (req, res, next) => {
+	const { userId, itemId } = req.params
 	let comment = new Comment(req.body)
-	comment.user = req.params.userId
-	comment.item = req.params.itemId
+	comment.user = userId
+	comment.item = itemId
 	return comment.save().then(function () {
 		// Does the User have any comments already?
-		User.findById(req.params.userId)
+		User.findById(userId)
 		.then(function (user) {
 			if (!user.comment) {
 				user.comment = []
@@ -82,7 +83,7 @@ exports.addComment = (req, res, next) => {
 			user.save()
 		})
 		// Does the Item have any comments already?
-		Item.findById(req.params.itemId)
+		Item.findById(itemId)
 		.then(function (item) {
 			if (!item.comment) {
 				item.comment = []

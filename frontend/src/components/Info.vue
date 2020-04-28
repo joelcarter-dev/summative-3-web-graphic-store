@@ -64,22 +64,22 @@ export default {
   text-decoration: none
   text-align: center
   height: 1.8rem
-  letter-spacing: 1px
+  letter-spacing: 0.5px
   width: 8rem
   font-family: "Open Sans", sans serif
-  font-weight: 500
-  margin-top: 1.5rem
+  font-weight: 600
+  margin-top: 1rem
   cursor: pointer
+  padding: 0px
 
 .solid
   background-image: $buttonGradient
   color: white
-  padding: 2px
   border: none
 
 .inverse
   background-color: white
-  color: black
+  color: $mainRed
   border: 2px $mainRed solid
   margin-left: 2rem
 
@@ -94,11 +94,11 @@ export default {
 .heading-info
   font-family: "Alegreya Sans", sans serif
   font-weight: bold
-  font-size: 2rem
+  font-size: 2.5rem
   padding-top: 2rem
   color: $mainRed
   text-shadow: 0px 3px 6px #D6D6D6
-  margin-top: 0
+  margin: 0
 
 .sub-heading-info
   font-family: "Open Sans", sans serif

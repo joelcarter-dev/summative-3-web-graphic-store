@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  props: ["text", "link"],
+  props: ["type", "value"],
   name: "BtnInverse"
 };
 </script>
