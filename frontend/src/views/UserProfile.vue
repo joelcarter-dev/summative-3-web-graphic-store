@@ -22,8 +22,8 @@
 				</div>
 				<div class="qualifications profile-item">
 					<div class="title">Qualifications</div>
-					<div class="content" v-for="item in info.qualifications" :key="item">
-						<p class="item">{{item}}</p>
+					<div class="item" v-for="item in info.qualifications" :key="item">
+						<p>{{item}}</p>
 					</div>
 				</div>
 				
@@ -107,4 +107,7 @@
 		font-size: 20px
 	.profile-item
 		max-width: 340px
+	.qualifications
+		.item
+			padding: 0
 </style>

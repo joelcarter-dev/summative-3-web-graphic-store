@@ -9,9 +9,9 @@
         <form @submit="checkForm" class="login-form">
           <h2 class="sub-heading">Name</h2>
           <input type="text" name="name" />
-          <h2 class="sub-heading">Username</h2>
-          <input type="text" name="userName" />
-          <Btn class="button-modal" @click:="loginUser" value="Log In"/>
+          <h2 class="sub-heading">Email</h2>
+          <input type="text" name="email" />
+          <Btn class="button-modal" @click.native="loginUser" value="Log In"/>
         </form>
         <p class="sign-up">
           Don't have an account?
@@ -37,7 +37,7 @@ export default {
     return {
       modal: false,
       user: {
-        email: ""
+        email: "john@gmail.com"
       },
       ohCrap: "",
       errors: []
@@ -59,17 +59,15 @@ export default {
     },
     loginUser: function() {
       return axios
-        .post(`${config.apiUrl}users/login`, this.user)
+        .post(`${config.apiUrl}/users/login/`, this.user)
         .then(response => {
           let user = response.data.user;
           if (user) {
-            localStorage.userEmail = user.email;
+            localStorage.userId = response.data.user.id;
           } else {
             //show message
           }
           console.log("logged in for user", response.data.user);
-          // handle success
-          this.$router.push({ path: "/" });
         })
         .catch(function(error) {
           // handle error

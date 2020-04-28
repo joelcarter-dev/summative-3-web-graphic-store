@@ -97,3 +97,27 @@ exports.addComment = (req, res, next) => {
 		})
 	})
 }
+
+/**
+ * AUTH
+ */
+
+ // @desc      Log in a user
+// @route     POST /api/v1/users/login
+exports.logInUser = async (req, res, next) => {
+	console.log("login user")
+    if(!req.body.email) {
+        return res.status(422).json({
+            succsess: false,
+            message: "Email can't be blank"
+        })
+    }
+    let user = await User.findOne({email: req.body.email});
+    if(!user) {
+        return res.status(422).json({
+            succsess: false,
+            message: "user not found"
+        })
+    }
+    return res.json({ user: user.toJSON() })
+}

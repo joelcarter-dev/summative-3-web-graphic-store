@@ -25,13 +25,13 @@ export default {
   name: "Navbar",
   data() {
     return {
-      login: true,
+      login: null,
       userDetails: {}
     }
   },
   created: async function() {
     this.login = await GetIsLoggedIn.isLoggedIn()
-    this.userDetails = await UserDetails.getUser("5e9eedead3f3ec672829ec4e")
+    this.userDetails = await UserDetails.getUser(GetIsLoggedIn.getUserId())
   }
 }
 
