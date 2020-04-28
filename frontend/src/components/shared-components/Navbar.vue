@@ -1,40 +1,50 @@
 <template>
   <div class="header">
-    <img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" />
+    <router-link to="/"><img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" /></router-link>
     <div class="nav-links">
       <router-link class="link" to="/">Home</router-link>
-      <router-link class="link" :to="{
-        name: 'profile', 
-        params: { user: userDetails.id, showCreate: true },
-      }">List an item</router-link>
+      <router-link class="link" :to="{ name: 'profile', params: { user: userDetails.id, showCreate: true },}">List an item</router-link>
+      
+      <div class="link nav-pointer" v-if="!login" @click="showLogIn">Login</div>
       <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
-      <!-- SIGN IN OR PROFILE, DEPENDING ON LOGGED IN STATUS -->
-      <router-link v-if="login" :to="{ 
+      <router-link
+        v-if="login"
+        :to="{ 
         name: 'profile', 
         params: { user: userDetails.id },
-      }">{{userDetails.name}}</router-link>
+      }"
+      >{{userDetails.name}}</router-link>
     </div>
+    <!-- LOGOUT -->
+    <router-link v-if="!login" @click="login = 'false'">Logout</router-link>
   </div>
 </template>
 
 <script>
-import GetIsLoggedIn from "../../services/auth-service"
-import UserDetails from "../../services/get-user-details"
+import { EventBus } from "../../main"
+import GetIsLoggedIn from "../../services/auth-service";
+import UserDetails from "../../services/get-user-details";
 export default {
   props: [],
   name: "Navbar",
   data() {
     return {
-      login: null,
+      login: true,
+      modalLogIn: true,
       userDetails: {}
     }
+  },
+  methods: {
+    showLogIn() {
+      var logInData = this.modalLogIn;
+      EventBus.$emit("login-value", logInData);
+    },
   },
   created: async function() {
     this.login = await GetIsLoggedIn.isLoggedIn()
     this.userDetails = await UserDetails.getUser(GetIsLoggedIn.getUserId())
   }
 }
-
 </script>
 
 <style lang="sass" scoped>
@@ -68,6 +78,9 @@ export default {
     text-decoration: none
   .link:hover
     color: $mainRed
+
+  .nav-pointer
+    cursor: pointer
 
 .logo
   height: 2rem

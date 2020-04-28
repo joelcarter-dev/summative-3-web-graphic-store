@@ -6,19 +6,17 @@
         class="sub-heading-info"
       >100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
       <div class="buttons-info">
-        <!-- DYNAMIC BUTTON: SIGN IN BUTTON WHEN LOGGED OUT, LIST AN ITEM WHEN LOGGED IN -->
         <div class="buttons-logged-out" v-if="!loggedIn">
         <button class="button solid" @click="showLogIn">Log in</button>
         <button class="button inverse" @click="showSignUp">Sign up</button>
         </div>
         <div class="buttons-logged-in" v-if="loggedIn">
-        <button class="button solid">List an item</button>
-        <button class="button inverse">View listings</button>
+        <Btn-router value="List an item" link="profile"></Btn-router>
+        <BtnInverse-router value="View listings">View listings</BtnInverse-router>
         </div>
       </div>
     </div>
     <div class="stock-images">
-      <!-- HARD CODED FOR NOW -->
       <img
         class="image-wide"
         src="https://images.pexels.com/photos/1012982/pexels-photo-1012982.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
@@ -37,9 +35,12 @@
 
 <script>
 import { EventBus } from "../main";
+import BtnRouter from "../components/shared-components/BtnRouter"
+import BtnInverseRouter from "../components/shared-components/BtnInverseRouter"
 export default {
+  props: [ "value", "link" ],
   name: "InfoSection",
-  components: {},
+  components: { BtnRouter, BtnInverseRouter },
   data() {
     return {
       loggedIn: false,
@@ -64,7 +65,6 @@ export default {
 @import "../lib/vars"
 
 .button
-  border: 2px $mainRed solid
   border-radius: 5px
   box-shadow: 6px 6px 6px #C1C1C1
   font-size: 0.9rem

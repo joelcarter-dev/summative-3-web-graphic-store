@@ -119,6 +119,7 @@ export default {
   display: flex
   justify-content: center
   margin-bottom: 1rem
+  box-shadow: 6px 6px 6px #1D1D1D
 
 .modal-overlay
   display: flex
