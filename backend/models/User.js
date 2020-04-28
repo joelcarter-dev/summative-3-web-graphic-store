@@ -7,61 +7,45 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    userName: {
-        type: String,
-        required: true,
-        maxLength: [15, 'User name cannot exceed 15 characters']
-    },
-    imageURL: {
-        type: String,
-        required: false
-    },
-    bio: {
-        type: String,
-        required: false
-    },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
-    phone: {
-        type: Number,
-        required: false,
-        unique: true
-    },
-    qualifications: {
-        type: String,
-        required: false
-    },
+    password: String,
+    bio: String,
+    photo: String,
+    phone: String,
+    location: String,
+    qualifications: [String],
+    memberSince: Number,
     items: [{
-        type: mongoose.Schema.Types.ObjectId, 
+        type: Schema.Types.ObjectId, 
         ref: 'Item' 
-    }]
+    }],
+    // Comment not required yet
+    // comment: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Comment'
+    // }]
 },
 {timestamps: true}
 )
 
 UserSchema.methods.toJSON = function(){
    return {
-       id: this._id,
-       firstName: this.firstName,
-       lastName: this.lastName,
-       userName: this.userName,
-       bio: this.bio,
-       email: this.email,
-       phone: this.phone,
-       qualifications: this.qualifications,
-       items: this.items
+        id: this._id,
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        bio: this.bio,
+        photo: this.photo,
+        phone: this.phone,
+        location: this.location,
+        qualifications: this.qualifications,
+        memberSince: this.memberSince,
+        items: this.items,
+        // comment: this.comment
    } 
 }
 
-// Schema.plugin(mongooseUniqueValidator)
-
 module.exports = mongoose.model("User", UserSchema)
-
-//components
-// parent: profile component
-// children: item list (put in shared folder)
-
-// create a folder called shared for child components that are going to be used more than once

@@ -40,11 +40,11 @@ exports.createUser = async (req, res, next) => {
 
 // @desc      Update user
 // @route     PUT /api/v1/users/:id
-exports.updateUser = (req, res, next) => {
-	res.status(200).json({
-		success: true,
-		msg: `User info has been updated for user with id ${req.params.id}`,
-	})
+exports.updateUser = async (req, res, next) => {
+	console.log('update user-->', req.body)
+	let updatedUser = _.extend(req.user, req.body)
+	await updatedUser.save()
+	return res.json({ user: updatedUser.toJSON() })
 }
 
 // @desc      Update user rating

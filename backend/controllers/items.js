@@ -59,10 +59,10 @@ exports.updateItem = (req, res, next) => {
 
 // @desc      Delete item
 // @route     DELETE /api/v1/items/:id
-exports.deleteItem = (req, res, next) => {
-	res
-		.status(200)
-		.json({ success: true, msg: `Item with id ${req.params.id} deleted` })
+exports.deleteItem = async (req, res, next) => {
+	console.log('delete item')
+  await Item.findByIdAndRemove(req.id)
+  return res.sendStatus(204)
 }
 
 // @desc      Get items listed at more than the price sent by the user

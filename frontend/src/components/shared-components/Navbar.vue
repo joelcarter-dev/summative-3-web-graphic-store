@@ -19,19 +19,18 @@
 
 <script>
 import GetIsLoggedIn from "../../services/auth-service"
-
 import UserDetails from "../../services/get-user-details"
 export default {
   props: [],
   name: "Navbar",
   data() {
     return {
-        login: false,
-        userDetails: {}
+      login: true,
+      userDetails: {}
     }
   },
   created: async function() {
-    this.login = GetIsLoggedIn.isLoggedIn()
+    this.login = await GetIsLoggedIn.isLoggedIn()
     this.userDetails = await UserDetails.getUser("5e9eedead3f3ec672829ec4e")
   }
 }

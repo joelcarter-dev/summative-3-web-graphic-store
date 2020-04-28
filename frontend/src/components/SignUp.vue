@@ -1,23 +1,22 @@
 <template>
-  <div>
+  <div class="sign-up">
     <transition name="fade" appear>
-      <div class="modal-overlay" v-if="modal" @click="modal = false">
-        <div class="modal-center">
-          <div class="modal-signup">
-            <h1 class="heading">Sign up</h1>
-            <form @submit="checkForm" class="login-form">
-              <h2 class="sub-heading">Name</h2>
-              <input v-model="user.name" type="text" name="name" />
-              <h2 class="sub-heading">Username</h2>
-              <input type="text" name="userName" />
-              <h2 class="sub-heading">Email address</h2>
-              <input type="text" name="emailAddress" />
-              <Btn class="button-modal" @click:="createUser" />
-            </form>
-          </div>
-        </div>
-      </div>
+      <div class="modal-overlay" v-if="modal" @click="modal = false"></div>
     </transition>
+    <div class="modal-center" v-if="modal">
+      <div class="modal-signup">
+        <h1 class="heading">Sign up</h1>
+        <form @submit="checkForm" class="login-form">
+          <h2 class="sub-heading">Name</h2>
+          <input v-model="user.name" type="text" name="name" />
+          <h2 class="sub-heading">Username</h2>
+          <input v-model="user.userName" type="text" name="userName" />
+          <h2 class="sub-heading">Email address</h2>
+          <input v-model="user.email" type="text" name="email" />
+          <Btn class="button-modal" @click.native="createUser" />
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -34,11 +33,11 @@ export default {
     return {
       modal: false,
       user: {
-        name: "",
-        userName: "",
-        email: ""
+        name: null,
+        userName: null,
+        email: null
       },
-      ohCrap: "",
+      botChecker: "",
       errors: []
     };
   },
@@ -46,7 +45,7 @@ export default {
     checkForm: function(evt) {
       evt.preventDefault();
       this.errors = [];
-      if (this.ohCrap) {
+      if (this.botChecker) {
         this.errors.push("Not so fast mate!!!");
       }
       if (!this.user.email) {
@@ -73,9 +72,15 @@ export default {
 <style lang="sass" scoped>
 @import "../lib/vars.sass"
 
-.modal-center
+.sign-up
   display: flex
   justify-content: center
+  margin: 0rem !important
+
+.modal-center
+  position: absolute
+  margin-top: 16rem
+  z-index: 99
   .modal-signup
     text-align: center
     background-color: $backgroundDark
@@ -89,6 +94,7 @@ export default {
   color: $mainRed
   font-family: $redHeading
   font-weight: bold
+  font-size: 2rem
 
 .sub-heading
   color: white
@@ -118,9 +124,6 @@ export default {
   display: flex
   justify-content: center
   align-items: center
-  height: 100%
-  // overflow-x: visible
-  // overflow-y: visible
   position: absolute
   top: 0
   left: 0
@@ -129,8 +132,12 @@ export default {
   z-index: 98
   background-color: rgba(0, 0, 0, 0.3)
 
-.fade-enter-active, fade-leave-active
-  transition: opacity .5s
+.fade-enter-active, .fade-leave-active
+  transition: opacity 0.5s
+
+.fade-enter,
+.fade-leave-to
+  opacity: 0
 </style>
 
 // event bus will send an event for everything to listen to
