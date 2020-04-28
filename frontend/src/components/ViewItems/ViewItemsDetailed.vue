@@ -46,26 +46,26 @@ $imageHeight: 180px
       width: $imageHeight
       height: $imageHeight
       border-radius: 5px 0 0 5px
-    .right
-      *
-        margin: 15px 30px
-        font-family: 'Open Sans', sans-serif
-        h1
-          font-weght: bold
-          font-size: 20px
-          color: $fontBlack
-        span
-          color: $mainRed
-          font-size: 20px
-        .description
-          font-weght: 100
-          color: $fontBlack
-    .admin-buttons
-      width: 30px
-      margin: 0
-      margin-top: -30px
-      float: right
-      *
-        margin: 5px
-        color: $fontBlack
+  .right
+    *
+      margin: 15px 30px
+      font-family: 'Open Sans', sans-serif
+    h1
+      font-weght: bold
+      font-size: 20px
+      color: $fontBlack
+    span
+      color: $mainRed
+      font-size: 20px
+    .description
+      font-weght: 100
+      color: $fontBlack
+  .admin-buttons
+    width: 30px
+    margin: 0
+    margin-top: -30px
+    float: right
+    *
+      margin: 5px
+      color: $fontBlack
 </style>
