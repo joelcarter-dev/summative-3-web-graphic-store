@@ -13,7 +13,7 @@
           <input v-model="user.userName" type="text" name="userName" />
           <h2 class="sub-heading">Email address</h2>
           <input v-model="user.email" type="text" name="email" />
-          <Btn class="button-modal" @click:="createUser" />
+          <Btn class="button-modal" @click.native="createUser" />
         </form>
       </div>
     </div>
