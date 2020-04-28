@@ -5,9 +5,9 @@
 
 			<div class="about-holder">
 				<div class="top">
-					<img :src="info.image" :alt="info.firstName" class="profile-image">
+					<img :src="info.photo" :alt="info.name" class="profile-image">
 					<div class="left">
-						<h1 class="name">{{info.userName}}</h1>
+						<h1 class="name">{{info.name}}</h1>
 						<span>{{info.email}}</span>
 						<span></span>
 					</div>
@@ -22,7 +22,9 @@
 				</div>
 				<div class="qualifications profile-item">
 					<div class="title">Qualifications</div>
-					<p class="content">{{info.qualifications}}</p>
+					<div class="content" v-for="item in info.qualifications" :key="item">
+						<p class="item">{{item}}</p>
+					</div>
 				</div>
 				
 				<Button 
