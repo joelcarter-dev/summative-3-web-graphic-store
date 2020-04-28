@@ -47,9 +47,10 @@ exports.updateItem = (req, res, next) => {
 
 // @desc      Delete item
 // @route     DELETE /api/v1/items/:id
-exports.deleteItem = (req, res, next) => {
-	console.log('Item Deleted')
-	Item.findByIdAndRemove(req.Item.id)
+exports.deleteItem = async (req, res, next) => {
+
+	console.log(req.params)
+	await Item.findByIdAndRemove(req.params.id)
 	return res.sendStatus(204)
 	// .json({ success: true, msg: `Item with id ${req.params.id} deleted` })
 }

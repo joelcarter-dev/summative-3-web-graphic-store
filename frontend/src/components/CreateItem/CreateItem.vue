@@ -64,7 +64,7 @@
 					price: null,
 					about: "",
 					imageUrl: "",
-					artist: this.$route.params.user
+					user: this.$route.params.user
 				},
 				isLoggedIn: false,
 				errors: []
