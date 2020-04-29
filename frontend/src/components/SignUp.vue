@@ -9,10 +9,12 @@
         <form @submit="checkForm" class="login-form">
           <h2 class="sub-heading">Name</h2>
           <input v-model="user.name" type="text" name="name" />
-          <h2 class="sub-heading">Username</h2>
-          <input v-model="user.userName" type="text" name="userName" />
-          <h2 class="sub-heading">Email address</h2>
+          <h2 class="sub-heading">Email</h2>
           <input v-model="user.email" type="text" name="email" />
+          <h2 class="sub-heading">Password</h2>
+          <input v-model="user.password" type="text" name="password" />
+          <h2 class="sub-heading">Location</h2>
+          <input v-model="user.location" type="text" name="location" />
           <Btn class="button-modal" @click.native="createUser" value="Sign Up" />
         </form>
       </div>
@@ -34,8 +36,9 @@ export default {
       modal: false,
       user: {
         name: null,
-        userName: null,
-        email: null
+        email: null,
+        password: null,
+        location: null
       },
       botChecker: "",
       errors: []

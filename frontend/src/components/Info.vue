@@ -94,6 +94,9 @@ export default {
   border: 2px $mainRed solid
   margin-left: 2rem
 
+.buttons-logged-in
+  display: flex
+
 .info
   display: block
   position: relative

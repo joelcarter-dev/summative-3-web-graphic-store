@@ -8,20 +8,19 @@
       <router-link class="link" v-if="login" :to="{ name: 'profile', params: { user: userDetails.id, showCreate: true },}">List an item</router-link>
       
       <div class="link nav-pointer" v-if="!login" @click="showLogIn">Login</div>
-      <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
-      <router-link
+      <router-link class="profile link"
         v-if="login"
         :to="{ 
         name: 'profile', 
         params: { user: userDetails.id },
       }"
       >{{userDetails.name}}</router-link>
-      <div class="link nav-pointer" v-if="login" @click="localStorage.removeItem(this.userDetails)">Logout</div>
+      <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
+      <div class="link nav-pointer" v-if="login" @click="clearLocal">Logout</div>
     </div>
   </div>
 </template>
 
-//TODO how does this component know when Auth.isLoggedIn changes? What is upading it?
 <script>
 import { EventBus } from "../../main"
 import Auth from "../../services/auth-service";
@@ -40,6 +39,10 @@ export default {
     showLogIn() {
       var logInData = this.modalLogIn;
       EventBus.$emit("login-value", logInData);
+    },
+    clearLocal(){
+      localStorage.clear()
+      location.reload()
     }
   },
   watch: {
@@ -83,6 +86,10 @@ export default {
     font-family: "Poppins", sans-serif
     color: white
     text-decoration: none
+
+  .profile 
+      color: pink
+  
   .link:hover
     color: $mainRed
 
