@@ -4,7 +4,8 @@
     <div class="nav-links">
       <router-link class="link" to="/">Home</router-link>
       <router-link class="link" :to="{ name: 'profile', params: { user: userDetails.id, showCreate: true },}">List an item</router-link>
-      <div class="link nav-pointer" @click="showLogIn">Login</div>
+      
+      <div class="link nav-pointer" v-if="!login" @click="showLogIn">Login</div>
       <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
       <router-link
         v-if="login"
