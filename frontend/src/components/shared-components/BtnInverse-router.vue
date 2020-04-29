@@ -1,10 +1,6 @@
 <template>
   <div class="button">
-<<<<<<< HEAD
-    <router-link :to="{name: link}" class="button-solid">{{text}}</router-link>
-=======
     <router-link :to="{name: link}" class="button-solid inverse">{{value}}</router-link>
->>>>>>> df31aa60d9c16fe11340a262834a1e3af3b97eed
   </div>
 </template>
 
@@ -29,7 +25,6 @@ export default {
         color: black
         border: 2px $mainRed solid
         border-radius: 5px
-        box-shadow: 6px 6px 6px #C1C1C1
         font-size: 0.9rem
         font-weight: 500
         text-decoration: none

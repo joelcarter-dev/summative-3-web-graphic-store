@@ -11,10 +11,10 @@
         <button class="button solid" @click="showLogIn">Log in</button>
         <button class="button inverse" @click="showSignUp">Sign up</button>
         </div>
-        <div class="buttons-logged-in" v-if="loggedIn">
-        <button class="button solid">List an item</button>
-        <button class="button inverse">View listings</button>
-        </div>
+        <!-- <div class="buttons-logged-in" v-if="loggedIn"> -->
+        <Btn-router>List an item</Btn-router>
+        <BtnInverse-router>View listings</BtnInverse-router>
+        <!-- </div> -->
       </div>
     </div>
     <div class="stock-images">

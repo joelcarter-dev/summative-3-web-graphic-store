@@ -20,7 +20,6 @@ export default {
         color: black
         border: 2px $mainRed solid
         border-radius: 5px
-        box-shadow: 6px 6px 6px #C1C1C1
         font-size: 0.9rem
         font-weight: 500
         text-decoration: none
