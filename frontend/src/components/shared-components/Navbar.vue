@@ -1,10 +1,15 @@
 <template>
   <div class="header">
-    <router-link to="/"><img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" /></router-link>
+    <router-link to="/">
+      <img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" />
+    </router-link>
     <div class="nav-links">
       <router-link class="link" to="/">Home</router-link>
-      <router-link class="link" :to="{ name: 'profile', params: { user: userDetails.id, showCreate: true },}">List an item</router-link>
-      
+      <router-link
+        class="link"
+        :to="{ name: 'profile', params: { user: userDetails.id, showCreate: true },}"
+      >List an item</router-link>
+
       <div class="link nav-pointer" v-if="!login" @click="showLogIn">Login</div>
       <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
       <router-link
@@ -16,12 +21,13 @@
       >{{userDetails.name}}</router-link>
     </div>
     <!-- LOGOUT -->
-    <router-link v-if="!login" @click="login = 'false'">Logout</router-link>
+    <div v-if="!login" @click="login = 'false'">Logout</div>
+    <!-- Need to clear local storage to log out.... localStorage.removeItem(pass in the user id here) -->
   </div>
 </template>
 
 <script>
-import { EventBus } from "../../main"
+import { EventBus } from "../../main";
 import GetIsLoggedIn from "../../services/auth-service";
 import UserDetails from "../../services/get-user-details";
 export default {
@@ -32,19 +38,19 @@ export default {
       login: true,
       modalLogIn: true,
       userDetails: {}
-    }
+    };
   },
   methods: {
     showLogIn() {
       var logInData = this.modalLogIn;
       EventBus.$emit("login-value", logInData);
-    },
+    }
   },
   created: async function() {
-    this.login = await GetIsLoggedIn.isLoggedIn()
-    this.userDetails = await UserDetails.getUser(GetIsLoggedIn.getUserId())
+    this.login = await GetIsLoggedIn.isLoggedIn();
+    this.userDetails = await UserDetails.getUser(GetIsLoggedIn.getUserId());
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>

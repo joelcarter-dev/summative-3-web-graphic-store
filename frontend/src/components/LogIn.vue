@@ -64,6 +64,7 @@ export default {
           let user = response.data.user;
           if (user) {
             localStorage.userId = response.data.user.id;
+            this.modal = false
           } else {
             //show message
           }
