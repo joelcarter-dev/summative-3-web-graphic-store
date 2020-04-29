@@ -1,9 +1,8 @@
-// @desc      Get all items
-// @route     GET /api/v1/items
 const mongoose = require('mongoose')
-
 const Item = mongoose.model('Item')
 
+// @desc      Get all items
+// @route     GET /api/v1/items
 exports.getItems = (req, res, next) => {
 	console.log("Get all Items")
 	Item.find()
@@ -28,17 +27,6 @@ exports.getItem = (req, res, next) => {
 		.catch(next)
 }
 
-// @desc      Get items buy an array of ids
-// @route     GET /api/v1/items/:id
-exports.getItem = (req, res, next) => {
-	Item.findById(req.params.id)
-		.then(function (item) {
-			return res.json({ item: item.toJSON() })
-		})
-
-	Item.find().where('_id').in(req.params.id).exec((err, records) => {})
-}
-
 // @desc      Create item
 // @route     POST /api/v1/items
 exports.createItem = async (req, res, next) => {
@@ -59,10 +47,11 @@ exports.updateItem = (req, res, next) => {
 
 // @desc      Delete item
 // @route     DELETE /api/v1/items/:id
-exports.deleteItem = async (req, res, next) => {
-	console.log('delete item')
-  await Item.findByIdAndRemove(req.id)
-  return res.sendStatus(204)
+exports.deleteItem = (req, res, next) => {
+	console.log('Item Deleted')
+	Item.findByIdAndRemove(req.Item.id)
+	return res.sendStatus(204)
+	// .json({ success: true, msg: `Item with id ${req.params.id} deleted` })
 }
 
 // @desc      Get items listed at more than the price sent by the user

@@ -19,19 +19,19 @@ const UserSchema = new Schema({
     qualifications: [String],
     memberSince: Number,
     item: [{
-        type: Schema.Types.ObjectId, 
-        ref: 'Item' 
+        type: Schema.Types.ObjectId,
+        ref: 'Item'
     }],
     comment: [{
         type: Schema.Types.ObjectId,
         ref: 'Comment'
     }]
-},
-{timestamps: true}
-)
+}, {
+    timestamps: true
+})
 
-UserSchema.methods.toJSON = function(){
-   return {
+UserSchema.methods.toJSON = function () {
+    return {
         id: this._id,
         name: this.name,
         email: this.email,
@@ -42,9 +42,9 @@ UserSchema.methods.toJSON = function(){
         location: this.location,
         qualifications: this.qualifications,
         memberSince: this.memberSince,
-        items: this.items,
+        item: this.item,
         comment: this.comment
-   } 
+    }
 }
 
 module.exports = mongoose.model("User", UserSchema)
