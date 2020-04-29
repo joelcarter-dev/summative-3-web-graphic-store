@@ -22,13 +22,12 @@
     </div>
     <!-- LOGOUT -->
     <div v-if="!login" @click="login = 'false'">Logout</div>
-    <!-- Need to clear local storage to log out.... localStorage.removeItem(pass in the user id here) -->
   </div>
 </template>
 
 <script>
-import { EventBus } from "../../main";
-import GetIsLoggedIn from "../../services/auth-service";
+import { EventBus } from "../../main"
+import Auth from "../../services/auth-service";
 import UserDetails from "../../services/get-user-details";
 export default {
   props: [],
@@ -47,8 +46,8 @@ export default {
     }
   },
   created: async function() {
-    this.login = await GetIsLoggedIn.isLoggedIn();
-    this.userDetails = await UserDetails.getUser(GetIsLoggedIn.getUserId());
+    this.login = await Auth.isLoggedIn()
+    this.userDetails = await UserDetails.getUser(Auth.getUserId())
   }
 };
 </script>
