@@ -20,14 +20,6 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// //Setup s3: Require all the models
-// require("./models/Article");
-// //Setup s5: Require the User model
-// require("./models/User");
-
-// //Setup s1: Use the routes
-// app.use(require('./routes'));
-
 //Setup s2: Connect the database
 mongoose.connect(process.env.MONGODB_URI, {
 	useNewUrlParser: true,
@@ -69,8 +61,9 @@ app.use(function (err, req, res, next) {
 })
 
 //Bring in modals
-require('./models/Item')
-require('./models/User')
+require("./models/Item")
+require("./models/User")
+require("./models/Comments")
 
 
 // Bringing in files used for routing

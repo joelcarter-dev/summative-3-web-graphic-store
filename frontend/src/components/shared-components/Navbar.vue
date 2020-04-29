@@ -5,8 +5,7 @@
       <router-link class="link" to="/">Home</router-link>
       <router-link class="link" v-if="login" :to="{ 
         name: 'profile', 
-        params: { user: userDetails.id },
-        props: { showCreate: true}
+        params: { user: userDetails.id, showCreate: true }
       }">List an item</router-link>
       <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
       <!-- SIGN IN OR PROFILE, DEPENDING ON LOGGED IN STATUS -->
