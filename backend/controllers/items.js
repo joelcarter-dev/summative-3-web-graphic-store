@@ -27,17 +27,6 @@ exports.getItem = (req, res, next) => {
 		.catch(next)
 }
 
-// @desc      Get items buy an array of ids
-// @route     GET /api/v1/items/:id
-exports.getItem = (req, res, next) => {
-	Item.findById(req.params.id)
-		.then(function (item) {
-			return res.json({ item: item.toJSON() })
-		})
-
-// 	Item.find().where('_id').in(req.params.id).exec((err, records) => {})
-// }
-
 // @desc      Create item
 // @route     POST /api/v1/items
 exports.createItem = async (req, res, next) => {

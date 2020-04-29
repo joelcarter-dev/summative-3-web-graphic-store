@@ -9,24 +9,37 @@
       <p class="description">{{itemData.about}}</p>
       <div class="admin-buttons" v-if="isLoggedIn">
         <font-awesome-icon icon="pen" class="admin-icon" />
-        <font-awesome-icon icon="trash" class="admin-icon" @click="deleteItem" />
+        <font-awesome-icon icon="trash" class="admin-icon" @click.prevent="deleteItem(itemData.id)" />
       </div>
     </div>
   </router-link>
 </template>
 
 <script>
+
+import config from "../../../config"
+import axios from "axios"
 export default {
   name: "GridItem",
   props: ["itemData", "isLoggedIn"],
-  deleteItem: function(itemId) {
-    this.$http
-      .delete(`${process.env.VUE_APP_API_URL}items/${itemId}`)
-      .then(function() {
-        this.getItems();
-      });
+  methods: {
+    deleteItem: function(itemId) {
+      console.log(
+        "called delete item for item " + this.itemData.id
+      )
+      return axios
+        .delete(`${config.apiUrl}/items/${itemId}`)
+        .then(async () => {
+          // handle success
+          //this.projects = await this.getProjects()
+        })
+        .catch(function(error) {
+          // handle error
+          console.log(error)
+        })
+    }
   }
-};
+}
 </script>
 
 <style lang="sass" scoped>
