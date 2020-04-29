@@ -5,11 +5,8 @@
     </router-link>
     <div class="nav-links">
       <router-link class="link" to="/">Home</router-link>
-      <router-link
-        class="link"
-        :to="{ name: 'profile', params: { user: userDetails.id, showCreate: true },}"
-      >List an item</router-link>
-
+      <router-link class="link" v-if="login" :to="{ name: 'profile', params: { user: userDetails.id, showCreate: true },}">List an item</router-link>
+      
       <div class="link nav-pointer" v-if="!login" @click="showLogIn">Login</div>
       <font-awesome-icon class="fa-lg" :icon="['fas', 'bell']" />
       <router-link
@@ -24,6 +21,7 @@
   </div>
 </template>
 
+//TODO how does this component know when Auth.isLoggedIn changes? What is upading it?
 <script>
 import { EventBus } from "../../main"
 import Auth from "../../services/auth-service";
@@ -42,6 +40,11 @@ export default {
     showLogIn() {
       var logInData = this.modalLogIn;
       EventBus.$emit("login-value", logInData);
+    }
+  },
+  watch: {
+    login: async function() {
+      this.login = await Auth.isLoggedIn()
     }
   },
   created: async function() {
