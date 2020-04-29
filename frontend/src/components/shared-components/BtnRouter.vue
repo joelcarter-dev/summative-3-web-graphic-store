@@ -1,17 +1,15 @@
 <template>
-  <div class="button">
-    <router-link :to="{name: link}" class="button-solid">{{text}}</router-link>
+  <div class="btn">
+    <router-link :to="{ name: link }" class="btn-solid">{{ value }}</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["text", "link"],
+  props: ["value", "link", "userDetails"],
   name: "BtnRouter",
   data() {
-    return {
-      value: ""
-    }
+    return {};
   }
 };
 </script>
@@ -19,11 +17,14 @@ export default {
 <style lang="sass" scoped>
 @import "../../lib/vars"
 
-.button
+.btn
   display: flex
-  .button-solid
-    background-color: $mainRed
-    border: 2px $mainRed solid
+  margin: 0rem
+  .btn-solid
+    display: flex
+    align-items: center
+    justify-content: center
+    background-image: $buttonGradient
     border-radius: 5px
     color: white
     box-shadow: 6px 6px 6px #C1C1C1
@@ -34,6 +35,8 @@ export default {
     height: 1.8rem
     letter-spacing: 1px
     width: 8rem
+    font-weight: 600
     font-family: "Open Sans", sans serif
-    margin-top: 1.5rem
+    margin-top: 1rem
+    text-align: center
 </style>

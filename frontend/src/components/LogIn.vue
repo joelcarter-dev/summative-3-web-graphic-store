@@ -134,6 +134,7 @@ export default {
 .button-modal
   display: flex
   justify-content: center
+  box-shadow: 6px 6px 6px #1D1D1D
 
 .modal-overlay
   display: flex
