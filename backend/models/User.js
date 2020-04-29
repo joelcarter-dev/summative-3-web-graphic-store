@@ -11,12 +11,15 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    password: String,
+    password: {
+        type: String,
+        required: true
+    },
     bio: String,
     photo: String,
     phone: String,
     location: String,
-    qualifications: [String],
+    qualifications: String,
     memberSince: Number,
     item: [{
         type: Schema.Types.ObjectId,

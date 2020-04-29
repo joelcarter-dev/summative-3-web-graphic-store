@@ -29,7 +29,6 @@ import axios from "axios";
 import * as config from "../../config";
 export default {
   components: { Btn },
-  props: [""],
   name: "SignUp",
   data: function() {
     return {
@@ -59,10 +58,17 @@ export default {
       }
     },
     createUser: function() {
-      return axios.post(`${config.apiUrl}/users`).then(function() {
+      console.log('New user created')
+      return axios 
+      .post(`${config.apiUrl}/users`, this.user)
+        .then(function() {
         this.$router.push({ path: "/" });
-      });
-    }
+      })
+      .catch(function(error) {
+					// handle error
+					console.log(error);
+					})
+    },
   },
   created() {
     EventBus.$on("modal-value", signUpData => {

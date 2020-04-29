@@ -30,4 +30,5 @@ export default {
         font-family: "Open Sans", sans serif
         font-weight: 600
         margin-top: 1.5rem
+        cursor: pointer
 </style>

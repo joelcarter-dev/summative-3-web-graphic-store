@@ -11,8 +11,8 @@
         <button class="button inverse" @click="showSignUp">Sign up</button>
         </div>
         <div class="buttons-logged-in" v-if="login">
-        <Btn-router value="List an item" link="profile"></Btn-router>
-        <BtnInverse-router value="View listings">View listings</BtnInverse-router>
+        <Btn-router value="List an item" link="profile/userDetails.id" />
+        <BtnInverse-router value="View listings" link="item/" />
         </div>
       </div>
     </div>
@@ -38,8 +38,9 @@ import Auth from "../services/auth-service"
 import { EventBus } from "../main";
 import BtnRouter from "../components/shared-components/BtnRouter"
 import BtnInverseRouter from "../components/shared-components/BtnInverseRouter"
+import UserDetails from "../services/get-user-details";
 export default {
-  props: [ "value", "link" ],
+  props: ["value", "link"],
   name: "InfoSection",
   components: { BtnRouter, BtnInverseRouter },
   data() {
@@ -61,6 +62,7 @@ export default {
   },
   created: async function() {
     this.login = await Auth.isLoggedIn()
+    this.userDetails = await UserDetails.getUser(Auth.getUserId())
   }
 }
 </script>
