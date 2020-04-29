@@ -18,7 +18,7 @@ const UserSchema = new Schema({
     location: String,
     qualifications: [String],
     memberSince: Number,
-    items: [{
+    item: [{
         type: Schema.Types.ObjectId, 
         ref: 'Item' 
     }],
