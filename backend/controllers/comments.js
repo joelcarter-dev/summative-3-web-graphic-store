@@ -9,15 +9,6 @@ exports.getComments = (req, res, next) => {
 		})
 }
 
-// @desc      Add a comment
-// @route     POST /api/v1/items/:itemId/comments
-exports.addComment = (req, res, next) => {
-	res.status(200).json({
-		success: true,
-		msg: `Added a comment to the item with id ${req.params.itemId}`,
-	})
-}
-
 // @desc      Update comment
 // @route     PUT /api/v1/comments/:id
 exports.updateComment = (req, res, next) => {

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
+const Comment = mongoose.model('Comment')
+const Item = mongoose.model('Item')
 
 // @desc      Get all users
 // @route     GET /api/v1/users
@@ -23,7 +25,6 @@ exports.getUser = (req, res, next) => {
 	User.findById(req.params.id)
 		.populate("items")
 		.then(function (user) {
-			console.log("get user")
 			return res.json(user.toJSON())
 		})
 		.catch(next)
@@ -62,4 +63,37 @@ exports.deleteUser = (req, res, next) => {
 	res
 		.status(200)
 		.json({ success: true, msg: `User with id ${req.params.id} deleted` })
+}
+
+// @desc      Add a comment
+// @route     POST /api/v1/users/:userId/items/:itemId/comments
+exports.addComment = (req, res, next) => {
+	const { userId, itemId } = req.params
+	let comment = new Comment(req.body)
+	comment.user = userId
+	comment.item = itemId
+	return comment.save().then(function () {
+		// Does the User have any comments already?
+		User.findById(userId)
+		.then(function (user) {
+			if (!user.comment) {
+				user.comment = []
+			}
+			user.comment.push(comment)
+			user.save()
+		})
+		// Does the Item have any comments already?
+		Item.findById(itemId)
+		.then(function (item) {
+			if (!item.comment) {
+				item.comment = []
+			}
+			item.comment.push(comment)
+			item.save()
+		})
+		return res.status(200).json({
+				success: true,
+				msg: `User with ID ${comment.user} successfully added this comment to the database ${comment.content}. The comment was about the item with ID ${comment.item}`
+		})
+	})
 }
