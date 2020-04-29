@@ -1,7 +1,7 @@
 # summative-3-web-graphic-store
 Yoobee Application Development assignment, Web graphic store
 
-# TO Run localy
+# To Run localy
 
 Donwload or clone. Run `npm i` for both the `frontend` and `backend` folders
 
