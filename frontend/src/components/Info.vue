@@ -6,11 +6,11 @@
         class="sub-heading-info"
       >100% free e-commerce platform for artists! Sign up or log in to get started.</h2>
       <div class="buttons-info">
-        <div class="buttons-logged-out" v-if="!loggedIn">
+        <div class="buttons-logged-out" v-if="!login">
         <button class="button solid" @click="showLogIn">Log in</button>
         <button class="button inverse" @click="showSignUp">Sign up</button>
         </div>
-        <div class="buttons-logged-in" v-if="loggedIn">
+        <div class="buttons-logged-in" v-if="login">
         <Btn-router value="List an item" link="profile"></Btn-router>
         <BtnInverse-router value="View listings">View listings</BtnInverse-router>
         </div>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import Auth from "../services/auth-service"
 import { EventBus } from "../main";
 import BtnRouter from "../components/shared-components/BtnRouter"
 import BtnInverseRouter from "../components/shared-components/BtnInverseRouter"
@@ -43,7 +44,7 @@ export default {
   components: { BtnRouter, BtnInverseRouter },
   data() {
     return {
-      loggedIn: false,
+      login: false,
       modalLogIn: true,
       modalSignUp: true
     };
@@ -57,8 +58,11 @@ export default {
       var signUpData = this.modalSignUp;
       EventBus.$emit("modal-value", signUpData);
     }
+  },
+  created: async function() {
+    this.login = await Auth.isLoggedIn()
   }
-};
+}
 </script>
 
 <style lang="sass" scoped>

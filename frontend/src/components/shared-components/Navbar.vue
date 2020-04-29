@@ -16,7 +16,7 @@
         params: { user: userDetails.id },
       }"
       >{{userDetails.name}}</router-link>
-      <div class="link" v-if="!login" @click="localStorage.removeItem(this.userDetails)">Logout</div>
+      <div class="link nav-pointer" v-if="login" @click="localStorage.removeItem(this.userDetails)">Logout</div>
     </div>
   </div>
 </template>
