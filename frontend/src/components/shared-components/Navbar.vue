@@ -19,9 +19,10 @@
         params: { user: userDetails.id },
       }"
       >{{userDetails.name}}</router-link>
+      <div class="link" v-if="!login" @click="login = 'false'">Logout</div>
+      <!-- Native method that will clear local storage, localStorage.removeItem(pass in the item id here) -->
+      <!-- LOGOUT -->
     </div>
-    <!-- LOGOUT -->
-    <div v-if="!login" @click="login = 'false'">Logout</div>
   </div>
 </template>
 
