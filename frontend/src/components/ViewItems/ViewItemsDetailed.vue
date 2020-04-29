@@ -60,6 +60,7 @@ $imageHeight: 180px
       height: $imageHeight
       border-radius: 5px 0 0 5px
   .right
+    width: 100%
     *
       margin: 15px 30px
       font-family: 'Open Sans', sans-serif
