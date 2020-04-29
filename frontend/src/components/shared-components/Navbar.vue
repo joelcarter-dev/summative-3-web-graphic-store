@@ -52,7 +52,7 @@ export default {
   },
   created: async function() {
     this.login = await Auth.isLoggedIn()
-    this.userDetails = await UserDetails.getUser(Auth.getUserId())
+    this.login ? this.userDetails = await UserDetails.getUser(Auth.getUserId()) : this.userDetails = null
   }
 };
 </script>
