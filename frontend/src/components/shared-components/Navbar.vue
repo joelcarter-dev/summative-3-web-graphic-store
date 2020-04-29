@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <router-link to="/"><img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" /></router-link>
+    <router-link to="/">
+      <img class="logo" src="../../../img/artmarket.svg" alt="ARTmarket" />
+    </router-link>
     <div class="nav-links">
       <router-link class="link" to="/">Home</router-link>
       <router-link class="link" v-if="login" :to="{ name: 'profile', params: { user: userDetails.id, showCreate: true },}">List an item</router-link>
@@ -14,7 +16,7 @@
         params: { user: userDetails.id },
       }"
       >{{userDetails.name}}</router-link>
-      <div class="link" v-if="login" @click="login = false">Logout</div>
+      <div class="link nav-pointer" v-if="login" @click="localStorage.removeItem(this.userDetails)">Logout</div>
     </div>
   </div>
 </template>
@@ -32,13 +34,13 @@ export default {
       login: true,
       modalLogIn: true,
       userDetails: {}
-    }
+    };
   },
   methods: {
     showLogIn() {
       var logInData = this.modalLogIn;
       EventBus.$emit("login-value", logInData);
-    },
+    }
   },
   watch: {
     login: async function() {
@@ -49,7 +51,7 @@ export default {
     this.login = await Auth.isLoggedIn()
     this.userDetails = await UserDetails.getUser(Auth.getUserId())
   }
-}
+};
 </script>
 
 <style lang="sass" scoped>
