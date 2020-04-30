@@ -1,66 +1,64 @@
 <template>
-	<div class="">
-		<Navbar />
-		<div class="profile-holder">
+  <div class>
+    <Navbar />
+    <div class="profile-holder">
+      <div class="about-holder">
+        <div class="top">
+          <img :src="info.photo" :alt="info.name" class="profile-image" />
+          <div class="left">
+            <h1 class="name">{{info.name}}</h1>
+            <span>{{info.email}}</span>
+            <span></span>
+          </div>
+        </div>
+        <div class="bio profile-item">
+          <div class="title">Bio</div>
+          <p class="content">{{info.bio}}</p>
+        </div>
+        <div class="contact profile-item">
+          <div class="title">Contact Details</div>
+          <p class="content">{{info.phone}}</p>
+        </div>
+        <div class="qualifications profile-item">
+          <div class="title">Qualifications</div>
+          <div class="item" v-for="item in info.qualifications" :key="item">
+            <p>{{item}}</p>
+          </div>
+        </div>
 
-			<div class="about-holder">
-				<div class="top">
-					<img :src="info.photo" :alt="info.name" class="profile-image">
-					<div class="left">
-						<h1 class="name">{{info.name}}</h1>
-						<span>{{info.email}}</span>
-						<span></span>
-					</div>
-				</div>
-				<div class="bio profile-item">
-					<div class="title">Bio</div>
-					<p class="content">{{info.bio}}</p>
-				</div>
-				<div class="contact profile-item">
-					<div class="title">Contact Details</div>
-					<p class="content">{{info.phone}}</p>
-				</div>
-				<div class="qualifications profile-item">
-					<div class="title">Qualifications</div>
-					<div class="item" v-for="item in info.qualifications" :key="item">
-						<p>{{item}}</p>
-					</div>
-				</div>
-				
-				<Btn 
-					:value="showCreate ? 'View My Items' : 'List An Item' "
-					v-on:click.native="showCreate = !showCreate"
-				/>
-			</div>
+        <Btn
+          :value="showCreate ? 'View My Items' : 'List An Item' "
+          v-on:click.native="showCreate = !showCreate"
+        />
+      </div>
 
-			<CreateItem v-if="showCreate" />
-			<GetItems :userItems="info.items" showDetailed="true" v-else/>
-
-		</div>
-	</div>
+      <CreateItem v-if="showCreate" />
+      <GetItems :userItems="info.items" showDetailed="true" v-else />
+    </div>
+  </div>
 </template>
 
 <script>
-	import Navbar from "../components/shared-components/Navbar"
-	import GetItems from "../components/ViewItems/ViewItemsGetItems"
-	import getUserDetails from "../services/get-user-details"
-	import CreateItem from "../components/CreateItem/CreateItem"
-	import Btn from "../components/shared-components/Btn"
-	export default {
-		name: "UserProfilePage",
-		components: {GetItems, Navbar, CreateItem, Btn},
-		deleteValue: false,
-		data: function() {
-			return {
-				info: {},
-				showCreate: false,
-			}
-		},
-		created: async function() {
-			this.showCreate = this.$route.params.showCreate
-			this.info = await getUserDetails.getUser(this.$route.params.user)
-		}
-	}
+import Navbar from "../components/shared-components/Navbar";
+import GetItems from "../components/ViewItems/ViewItemsGetItems";
+import getUserDetails from "../services/get-user-details";
+import CreateItem from "../components/CreateItem/CreateItem";
+import Btn from "../components/shared-components/Btn";
+export default {
+  name: "UserProfilePage",
+  components: { GetItems, Navbar, CreateItem, Btn },
+  deleteValue: false,
+  data: function() {
+    return {
+      info: {},
+      showCreate: false
+    };
+  },
+  created: async function() {
+    this.showCreate = this.$route.params.showCreate;
+    this.info = await getUserDetails.getUser(this.$route.params.user);
+  }
+};
 </script>
 
 <style lang="sass" scoped>

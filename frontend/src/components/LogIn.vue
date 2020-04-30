@@ -10,7 +10,9 @@
           <h2 class="sub-heading">Name</h2>
           <input type="text" name="name" />
           <h2 class="sub-heading">Email</h2>
-          <input type="text" name="email" />
+          <input type="text" name="email" v-model="user.email" />
+          <h2 class="sub-heading">Password</h2>
+          <input type="text" name="password" />
           <Btn class="button-modal" @click.native="loginUser" value="Log In"/>
         </form>
         <p class="sign-up">
@@ -37,9 +39,10 @@ export default {
     return {
       modal: false,
       user: {
-        email: "john@gmail.com"
+        email: null,
+        password: null,
       },
-      ohCrap: "",
+      honeyPot: "",
       errors: []
     };
   },
@@ -47,7 +50,7 @@ export default {
     checkForm: function(event) {
       event.preventDefault();
       this.errors = [];
-      if (this.ohCrap) {
+      if (this.honeyPot) {
         this.errors.push("Gotcha");
       }
       if (!this.user.email) {
