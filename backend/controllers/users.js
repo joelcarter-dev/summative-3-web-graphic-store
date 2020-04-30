@@ -23,12 +23,39 @@ exports.getUsers = (req, res, next) => {
 // @route     GET /api/v1/users/:id
 exports.getUser = (req, res, next) => {
 	User.findById(req.params.id)
-		.populate("items")
+		.populate("item")
 		.then(function (user) {
 			return res.json(user.toJSON())
 		})
 		.catch(next)
 }
+
+// @desc      Create item
+// @route     POST /api/v1/users/:id
+exports.createItemForUser = async (req, res, next) => {
+	console.log('create item')
+	let item = new Item(req.body)
+    item.user = req.params.userId
+  	await item.save()
+  	return res.json({ item: item.toJSON() })
+}
+
+// @desc      Get items by user
+// @route     GET /api/v1/users/:id/items
+exports.getUserItems = (req, res, next) => {
+	console.log("Get all items for user")
+	Item.find({user: req.params.userId})
+		//NOTE May need to change for search, but will do for now
+		.sort({ createdAt: 'desc' })
+		.then(function(Item) {
+			return res.json({
+				Item: Item.map(function(item) {
+				  return item.toJSON()
+				})
+			})
+		})
+}
+
 
 // @desc      Create user
 // @route     POST /api/v1/users

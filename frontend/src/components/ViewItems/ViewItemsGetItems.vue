@@ -1,13 +1,11 @@
 <template>
-	<section class="item-list" v-if="showDetailed">
-		<div v-for="item in items" :key="item.id" class="item-holder">
-			<DetailedItem :itemData="item" :isLoggedIn="isLoggedIn" />
-		</div>
+	<section class="no-items" v-if="items.length < 1">
+		<p>This user has no items</p>
 	</section>
 
-	<section class="item-grid" v-else-if="!userItems">
+	<section class="item-list" v-else-if="showDetailed">
 		<div v-for="item in items" :key="item.id" class="item-holder">
-			<GridItem :itemData="item" />
+			<DetailedItem :itemData="item" :isLoggedIn="isLoggedIn" />
 		</div>
 	</section>
 
@@ -51,13 +49,22 @@
 						console.log(error)
 					})
 			},
+			getUsersItems: function() {
+				console.log("ran get user items")
+				return axios
+					.get(`${config.apiUrl}/users/${GetIsLoggedIn.getUserId()}/items`)
+					.then((response) => {
+						//handle success
+						return response.data.Item
+					})
+					.catch(function(error) {
+						//handle error
+						console.log(error)
+					})
+			}
 		},
 		created: async function() {
-			if(this.userItems) {
-				this.items = this.userItems
-			} else {
-				this.items =  await this.getItems()
-			}
+			this.userItems ? this.items = await this.getUsersItems() : this.items = await this.getItems()
 			this.isLoggedIn = GetIsLoggedIn.isLoggedIn()
 		},
 	}
@@ -65,6 +72,10 @@
 
 <style lang="sass" scoped>
 	@import "../../lib/vars"
+	.no-items
+		font-family: 'Open Sans', sans-serif
+		color: $fontBlack
+		margin: 0 auto
 	.item-grid
 		display: grid
 		grid-template-columns: repeat(auto-fill, 200px)

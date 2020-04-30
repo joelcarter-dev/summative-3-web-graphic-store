@@ -11,8 +11,8 @@
         <button class="button inverse" @click="showSignUp">Sign up</button>
         </div>
         <div class="buttons-logged-in" v-if="login">
-        <Btn-router value="List an item" link="profile"></Btn-router>
-        <BtnInverse-router value="View listings">View listings</BtnInverse-router>
+        <Btn-router value="List an item" :link="{ name: 'profile', params: { user: userId, showCreate: true },}"></Btn-router>
+        <BtnInverseRouter class="link" value="View Listings" :link="{ name: 'profile', params: { user: userId },}"></BtnInverseRouter>
         </div>
       </div>
     </div>
@@ -46,7 +46,8 @@ export default {
     return {
       login: false,
       modalLogIn: true,
-      modalSignUp: true
+      modalSignUp: true,
+      userId: null,
     };
   },
   methods: {
@@ -61,6 +62,7 @@ export default {
   },
   created: async function() {
     this.login = await Auth.isLoggedIn()
+    this.login ? this.userId = await Auth.getUserId() : this.userId = null
   }
 }
 </script>

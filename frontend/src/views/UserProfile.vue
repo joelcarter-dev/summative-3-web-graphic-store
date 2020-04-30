@@ -34,7 +34,7 @@
 			</div>
 
 			<CreateItem v-if="showCreate" />
-			<GetItems :userItems="info.items" showDetailed="true" v-else/>
+			<GetItems :userItems="true" showDetailed="true" v-else/>
 
 		</div>
 	</div>

@@ -27,15 +27,6 @@ exports.getItem = (req, res, next) => {
 		.catch(next)
 }
 
-// @desc      Create item
-// @route     POST /api/v1/items
-exports.createItem = async (req, res, next) => {
-	console.log('create item')
-  	let item = new Item(req.body)
-  	await item.save()
-  	return res.json({ item: item.toJSON() })
-}
-
 // @desc      Update item
 // @route     PUT /api/v1/items/:id
 exports.updateItem = (req, res, next) => {
@@ -49,7 +40,7 @@ exports.updateItem = (req, res, next) => {
 // @route     DELETE /api/v1/items/:id
 exports.deleteItem = async (req, res, next) => {
 
-	console.log(req.params)
+	console.log("deleting item with id " + req.params)
 	await Item.findByIdAndRemove(req.params.id)
 	return res.sendStatus(204)
 	// .json({ success: true, msg: `Item with id ${req.params.id} deleted` })

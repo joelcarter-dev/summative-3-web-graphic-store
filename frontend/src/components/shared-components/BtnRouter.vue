@@ -1,6 +1,6 @@
 <template>
   <div class="btn">
-    <router-link :to="{ name: link }" class="btn-solid">{{ value }}</router-link>
+    <router-link :to="link" class="btn-solid">{{ value }}</router-link>
   </div>
 </template>
 

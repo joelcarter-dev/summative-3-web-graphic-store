@@ -63,7 +63,7 @@
 					name: "",
 					price: null,
 					about: "",
-					imageUrl: "",
+					image: "",
 					user: this.$route.params.user
 				},
 				isLoggedIn: false,
@@ -94,7 +94,7 @@
 			createItem: function() {
 				console.log("create item called")
 				return axios
-					.post(`${config.apiUrl}/items`, this.itemData)
+					.post(`${config.apiUrl}/users/${GetIsLoggedIn.getUserId()}/items`, this.itemData)
 					.then(() => {
 					// handle success
 

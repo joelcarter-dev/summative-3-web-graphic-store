@@ -1,6 +1,6 @@
 <template>
   <div class="btn-router">
-    <router-link :to="{name: link}" class="btn-solid inverse">{{ value }}</router-link>
+    <router-link :to="link" class="btn-solid inverse">{{ value }}</router-link>
   </div>
 </template>
 
