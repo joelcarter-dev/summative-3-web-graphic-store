@@ -1,31 +1,50 @@
+const mongoose = require('mongoose')
+const User = mongoose.model('User')
+
 // @desc      Get all users
 // @route     GET /api/v1/users
 exports.getUsers = (req, res, next) => {
-	res.status(200).json({ success: true, msg: `Showing all users` })
+	console.log("Get all Users")
+	User.find()
+		//NOTE May need to change for search, but will do for now
+		.sort({ createdAt: 'desc' })
+		.then(function(User) {
+			return res.json({
+				User: User.map(function(item) {
+				  return item.toJSON()
+				})
+			})
+		})
 }
 
 // @desc      Get single user
 // @route     GET /api/v1/users/:id
 exports.getUser = (req, res, next) => {
-	res.status(200).json({
-		success: true,
-		msg: `Showing details of user with id ${req.params.id}`,
-	})
+	User.findById(req.params.id)
+		.populate("items")
+		.then(function (user) {
+			console.log("get user")
+			return res.json(user.toJSON())
+		})
+		.catch(next)
 }
 
 // @desc      Create user
 // @route     POST /api/v1/users
-exports.createUser = (req, res, next) => {
-	res.status(200).json({ success: true, msg: `New user created` })
+exports.createUser = async (req, res, next) => {
+	console.log('create user')
+	let user = new User(req.body)
+	await user.save()
+	return res.json({ user: user.toJSON() })
 }
 
 // @desc      Update user
 // @route     PUT /api/v1/users/:id
-exports.updateUser = (req, res, next) => {
-	res.status(200).json({
-		success: true,
-		msg: `User info has been updated for user with id ${req.params.id}`,
-	})
+exports.updateUser = async (req, res, next) => {
+	console.log('update user-->', req.body);
+	let updatedUser = _.extend(req.user, req.body)
+	await updatedUser.save()
+	return res.json({ user: updatedUser.toJSON() })
 }
 
 // @desc      Update user rating

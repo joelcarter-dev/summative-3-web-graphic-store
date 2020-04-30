@@ -68,6 +68,11 @@ app.use(function (err, req, res, next) {
 	})
 })
 
+//Bring in modals
+require('./models/Item')
+require('./models/User')
+
+
 // Bringing in files used for routing
 const users = require("./routes/users.js")
 const items = require("./routes/items.js")
@@ -77,9 +82,6 @@ const comments = require("./routes/comments.js")
 app.use("/api/v1/users", users)
 app.use("/api/v1/items", items)
 app.use("/api/v1", comments)
-
-// Setting up a folder to display our API documentation
-app.use(express.static("public"))
 
 // finally, let's start our server...
 var server = app.listen(process.env.PORT || 3000, function () {

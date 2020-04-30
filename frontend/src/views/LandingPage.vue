@@ -1,12 +1,22 @@
 <template>
-	<div class=""></div>
+  <div class="view">
+    <Navbar />
+    <InfoSection />
+    <Login />
+    <SignUp />
+    <GetItems :showDetailed="false" />
+  </div>
 </template>
 
 <script>
-	export default {
-		name: "LandingPage",
-		components: {}
-	}
+import GetItems from "../components/ViewItems/ViewItemsGetItems"
+import Navbar from "../components/shared-components/Navbar"
+import InfoSection from "../components/Info"
+export default {
+  name: "LandingPage",
+  components: { GetItems, Navbar, InfoSection }
+};
 </script>
 
-<style lang="sass" scoped></style>
+<style lang="sass" scoped>
+</style>
