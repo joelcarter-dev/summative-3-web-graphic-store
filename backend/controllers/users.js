@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
-const User = mongoose.model('User')
-const Comment = mongoose.model('Comment')
-const Item = mongoose.model('Item')
+const mongoose = require("mongoose")
+const User = mongoose.model("User")
+const Comment = mongoose.model("Comment")
+const Item = mongoose.model("Item")
 
 // @desc      Get all users
 // @route     GET /api/v1/users
@@ -9,12 +9,12 @@ exports.getUsers = (req, res, next) => {
 	console.log("Get all Users")
 	User.find()
 		//NOTE May need to change for search, but will do for now
-		.sort({ createdAt: 'desc' })
-		.then(function(User) {
+		.sort({ createdAt: "desc" })
+		.then(function (User) {
 			return res.json({
-				User: User.map(function(item) {
-				  return item.toJSON()
-				})
+				User: User.map(function (item) {
+					return item.toJSON()
+				}),
 			})
 		})
 }
@@ -33,34 +33,33 @@ exports.getUser = (req, res, next) => {
 // @desc      Create item
 // @route     POST /api/v1/users/:id
 exports.createItemForUser = async (req, res, next) => {
-	console.log('create item')
+	console.log("create item")
 	let item = new Item(req.body)
-    item.user = req.params.userId
-  	await item.save()
-  	return res.json({ item: item.toJSON() })
+	item.user = req.params.userId
+	await item.save()
+	return res.json({ item: item.toJSON() })
 }
 
 // @desc      Get items by user
 // @route     GET /api/v1/users/:id/items
 exports.getUserItems = (req, res, next) => {
 	console.log("Get all items for user")
-	Item.find({user: req.params.userId})
+	Item.find({ user: req.params.userId })
 		//NOTE May need to change for search, but will do for now
-		.sort({ createdAt: 'desc' })
-		.then(function(Item) {
+		.sort({ createdAt: "desc" })
+		.then(function (Item) {
 			return res.json({
-				Item: Item.map(function(item) {
-				  return item.toJSON()
-				})
+				Item: Item.map(function (item) {
+					return item.toJSON()
+				}),
 			})
 		})
 }
 
-
 // @desc      Create user
 // @route     POST /api/v1/users
 exports.createUser = async (req, res, next) => {
-	console.log('create user')
+	console.log("create user")
 	let user = new User(req.body)
 	await user.save()
 	return res.json({ user: user.toJSON() })
@@ -69,7 +68,7 @@ exports.createUser = async (req, res, next) => {
 // @desc      Update user
 // @route     PUT /api/v1/users/:id
 exports.updateUser = async (req, res, next) => {
-	console.log('update user-->', req.body)
+	console.log("update user-->", req.body)
 	let updatedUser = _.extend(req.user, req.body)
 	await updatedUser.save()
 	return res.json({ user: updatedUser.toJSON() })
@@ -101,8 +100,7 @@ exports.addComment = (req, res, next) => {
 	comment.item = itemId
 	return comment.save().then(function () {
 		// Does the User have any comments already?
-		User.findById(userId)
-		.then(function (user) {
+		User.findById(userId).then(function (user) {
 			if (!user.comment) {
 				user.comment = []
 			}
@@ -110,8 +108,7 @@ exports.addComment = (req, res, next) => {
 			user.save()
 		})
 		// Does the Item have any comments already?
-		Item.findById(itemId)
-		.then(function (item) {
+		Item.findById(itemId).then(function (item) {
 			if (!item.comment) {
 				item.comment = []
 			}
@@ -119,8 +116,8 @@ exports.addComment = (req, res, next) => {
 			item.save()
 		})
 		return res.status(200).json({
-				success: true,
-				msg: `User with ID ${comment.user} successfully added this comment to the database ${comment.content}. The comment was about the item with ID ${comment.item}`
+			success: true,
+			msg: `User with ID ${comment.user} successfully added this comment to the database ${comment.content}. The comment was about the item with ID ${comment.item}`,
 		})
 	})
 }
@@ -129,22 +126,22 @@ exports.addComment = (req, res, next) => {
  * AUTH
  */
 
- // @desc      Log in a user
+// @desc      Log in a user
 // @route     POST /api/v1/users/login
 exports.logInUser = async (req, res, next) => {
 	console.log("login user")
-    if(!req.body.email) {
-        return res.status(422).json({
-            succsess: false,
-            message: "Email can't be blank"
-        })
-    }
-    let user = await User.findOne({email: req.body.email});
-    if(!user) {
-        return res.status(422).json({
-            succsess: false,
-            message: "user not found"
-        })
-    }
-    return res.json({ user: user.toJSON() })
+	if (!req.body.email) {
+		return res.status(422).json({
+			succsess: false,
+			message: "Email can't be blank",
+		})
+	}
+	let user = await User.findOne({ email: req.body.email })
+	if (!user) {
+		return res.status(422).json({
+			succsess: false,
+			message: "user not found",
+		})
+	}
+	return res.json({ user: user.toJSON() })
 }

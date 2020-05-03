@@ -31,7 +31,7 @@ export default {
         .delete(`${config.apiUrl}/items/${itemId}`)
         .then(async () => {
           // handle success
-          //this.projects = await this.getProjects()
+          this.$emit("deletedItem", this.itemData.id)
         })
         .catch(function(error) {
           // handle error

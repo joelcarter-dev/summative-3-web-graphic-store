@@ -21,7 +21,6 @@
 	import config from "../../../config"
 	import GridItem from "./ViewItemsGrid"
 	import DetailedItem from "./ViewItemsDetailed"
-	// import GetIsLoggedIn from "../../services/auth-service"
 	export default {
 		name: "GetItems",
 		components: {
@@ -66,9 +65,7 @@
 		created: async function() {
 			this.userItems ? this.items = await this.getUsersItems() : this.items = await this.getItems()
 			let userId = localStorage.getItem("userId")
-			console.log(userId)
 			if(userId && userId === this.$route.params.user) {	
-				console.log("true")	
 				this.isLoggedIn = true
 			} else {
 				this.isLoggedIn = false
