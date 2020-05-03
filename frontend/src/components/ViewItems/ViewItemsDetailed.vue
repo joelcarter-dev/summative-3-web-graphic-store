@@ -24,9 +24,7 @@ export default {
   props: ["itemData", "isLoggedIn"],
   methods: {
     deleteItem: function(itemId) {
-      console.log(
-        "called delete item for item " + this.itemData.id
-      )
+      this.$emit("deletedItem", this.itemData.id)
       return axios
         .delete(`${config.apiUrl}/items/${itemId}`)
         .then(async () => {

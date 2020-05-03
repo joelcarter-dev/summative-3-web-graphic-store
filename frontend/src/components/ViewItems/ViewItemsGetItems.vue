@@ -5,7 +5,7 @@
 
 	<section class="item-list" v-else-if="showDetailed">
 		<div v-for="item in items" :key="item.id" class="item-holder">
-			<DetailedItem :itemData="item" :isLoggedIn="isLoggedIn" />
+			<DetailedItem :itemData="item" :isLoggedIn="isLoggedIn" v-on:deletedItem="updateItems($event)"/>
 		</div>
 	</section>
 
@@ -69,8 +69,15 @@
 						//handle error
 						console.log(error)
 					})
+			},
+			updateItems: function(deletedId) {
+				let updatedItems = this.items.filter(function(item) {
+					return item.id != deletedId
+				})
+				this.items = updatedItems
 			}
 		},
+
 		created: async function() {
 			this.userItems ? this.items = await this.getUsersItems() : this.items = await this.getItems()
 			this.checkUser()
