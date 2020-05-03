@@ -21,7 +21,7 @@
 	import config from "../../../config"
 	import GridItem from "./ViewItemsGrid"
 	import DetailedItem from "./ViewItemsDetailed"
-	import GetIsLoggedIn from "../../services/auth-service"
+	// import GetIsLoggedIn from "../../services/auth-service"
 	export default {
 		name: "GetItems",
 		components: {
@@ -52,7 +52,7 @@
 			getUsersItems: function() {
 				console.log("ran get user items")
 				return axios
-					.get(`${config.apiUrl}/users/${GetIsLoggedIn.getUserId()}/items`)
+					.get(`${config.apiUrl}/users/${this.$route.params.user}/items`)
 					.then((response) => {
 						//handle success
 						return response.data.Item
@@ -65,7 +65,14 @@
 		},
 		created: async function() {
 			this.userItems ? this.items = await this.getUsersItems() : this.items = await this.getItems()
-			this.isLoggedIn = GetIsLoggedIn.isLoggedIn()
+			let userId = localStorage.getItem("userId")
+			console.log(userId)
+			if(userId && userId === this.$route.params.user) {	
+				console.log("true")	
+				this.isLoggedIn = true
+			} else {
+				this.isLoggedIn = false
+			}
 		},
 	}
 </script>

@@ -10,7 +10,7 @@
           <h2 class="sub-heading">Name</h2>
           <input type="text" name="name" />
           <h2 class="sub-heading">Email</h2>
-          <input type="text" name="email" />
+          <input type="text" name="email" v-model="user.email"/>
           <Btn class="button-modal" @click.native="loginUser" value="Log In"/>
         </form>
         <p class="sign-up">
@@ -37,7 +37,7 @@ export default {
     return {
       modal: false,
       user: {
-        email: "john@gmail.com"
+        email: ""
       },
       ohCrap: "",
       errors: []

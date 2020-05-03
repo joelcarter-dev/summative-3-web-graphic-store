@@ -28,7 +28,7 @@
 				</div>
 				
 				<Btn 
-					:value="showCreate ? 'View My Items' : 'List An Item' "
+					:value="showCreate ? 'View Items' : 'List An Item' "
 					v-on:click.native="showCreate = !showCreate"
 				/>
 			</div>
