@@ -56,17 +56,22 @@
 				localStorage.clear()
 				location.reload()
 			},
-		},
-		watch: {
-			login: async function() {
-				this.login = await Auth.isLoggedIn()
-			},
+			async getUserDetails() {
+				this.userDetails = await UserDetails.getUser(Auth.getUserId())
+			}
 		},
 		created: async function() {
 			this.login = await Auth.isLoggedIn()
 			this.login
-				? (this.userDetails = await UserDetails.getUser(Auth.getUserId()))
+				? (this.getUserDetails())
 				: (this.userDetails = null)
+
+			EventBus.$on("login-event", (isLoggedIn) => {
+				if(!this.login) {
+					this.login = isLoggedIn
+					this.getUserDetails()
+				}
+			})
 		},
 	}
 </script>

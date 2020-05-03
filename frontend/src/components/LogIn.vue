@@ -65,10 +65,11 @@
 						if (user) {
 							localStorage.userId = response.data.user.id
 							this.modal = false
+							//$emit event buss here
+							EventBus.$emit("login-event", true)
 						} else {
 							//show message
 						}
-						console.log("logged in for user", response.data.user)
 					})
 					.catch(function(error) {
 						// handle error

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+	import { EventBus } from "../../main"
 	import axios from "axios"
 	import config from "../../../config"
 	import GridItem from "./ViewItemsGrid"
@@ -48,6 +49,14 @@
 						console.log(error)
 					})
 			},
+			async checkUser() {
+				let userId = localStorage.getItem("userId")
+				if(userId && userId === this.$route.params.user) {	
+					this.isLoggedIn = true
+				} else {
+					this.isLoggedIn = false
+				}
+			},
 			getUsersItems: function() {
 				console.log("ran get user items")
 				return axios
@@ -64,12 +73,11 @@
 		},
 		created: async function() {
 			this.userItems ? this.items = await this.getUsersItems() : this.items = await this.getItems()
-			let userId = localStorage.getItem("userId")
-			if(userId && userId === this.$route.params.user) {	
-				this.isLoggedIn = true
-			} else {
-				this.isLoggedIn = false
-			}
+			this.checkUser()
+
+			EventBus.$on("login-event", () => {
+				this.checkUser()
+			})
 		},
 	}
 </script>
