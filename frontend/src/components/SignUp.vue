@@ -63,8 +63,11 @@
 				}
 			},
 			createUser: function() {
-				return axios.post(`${config.apiUrl}/users`).then(function() {
-					this.$router.push({ path: "/" })
+				return axios.post(`${config.apiUrl}/users`, this.user)
+				
+				.then((res) => {
+					console.log("sign up done " + res)
+					this.$router.go()
 				})
 			},
 		},
