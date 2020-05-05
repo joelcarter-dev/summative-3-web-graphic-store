@@ -67,6 +67,7 @@
 							this.modal = false
 							//$emit event buss here
 							EventBus.$emit("login-event", true)
+							location.reload()
 						} else {
 							//show message
 						}
