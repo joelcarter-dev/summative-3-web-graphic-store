@@ -15,6 +15,8 @@
 					<input v-model="user.password" type="text" name="password" />
 					<h2 class="sub-heading">Location</h2>
 					<input v-model="user.location" type="text" name="location" />
+					<h2 class="sub-heading">Photo url</h2>
+					<input v-model="user.photo" type="text" name="location" />
 					<Btn
 						class="button-modal"
 						@click.native="createUser"
@@ -43,6 +45,7 @@
 					email: null,
 					password: null,
 					location: null,
+					photo: null
 				},
 				botChecker: "",
 				errors: [],

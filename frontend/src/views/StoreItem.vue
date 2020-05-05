@@ -135,6 +135,7 @@
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 	.item-image
 		padding: 1.5em 2.5em 1.5em 1.5em
+		max-width: 600px
 	.name
 		font-family: 'Poppins', sans-serif
 		text-align: left
@@ -181,7 +182,8 @@
 		flex-direction: row
 		padding: 1em 0em 1em 0em
 	.user-image
-		height: 80%
+		height: 120px
+		width: 120px
 		border-radius: 50%
 	.user-info
 		display: flex
